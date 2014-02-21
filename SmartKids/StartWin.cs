@@ -23,39 +23,15 @@ namespace SmartKids
 
         private void StartWin_Load(object sender, EventArgs e)
         {
-            dataSet1.ReadXml("dataBase.xml");//так мало кода..чудесно..
-            //в данном случае впапке с exeшиком
-            //блин...мне удобно было деать разбор загрузки при подлюченном режиме...
-            //да сохраняй куда угодно этот файл
-            //всмысле когда надо загрузить пользователей..там проверить на одинаковость имен..в таком плане
-            //тогда лучше при добавлении пользователей проверяять чтоб таких не существовало - щас окажу
+            dataSet1.ReadXml("dataBase.xml");
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
            
-            //}
+           
         }
-
-        //private void UpdateListBox()
-        //{
-        //    listBox1.Items.Clear();
-        //    foreach (DataRow item in dataSet1.Users.Rows)
-        //    {
-        //        listBox1.Items.Add(item["user_name"].ToString() + " - " + item["points"].ToString());
-        //    }
-
-        //    //как то так :) 
-        //    // можно еще datagridview использоваь
-        //    //вот  так вроде норм :)
-        //    //а в грувшке оно удаляет автоматически за ним?
-        //    //гдее???7datagriew//
-        //    //    ааа, ну да - по идее любое измение в бд, вносится в превьюшку
-        //    //       забыла загрузку показать
-        //    //загрузилос :)а ще раз??где ты написала а то быстро как то..
-
-        //}
 
         //private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         //{
@@ -80,6 +56,19 @@ namespace SmartKids
         {
             add_user ad_u = new add_user();
             ad_u.Show();
+        }
+
+        private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            int id=(int) e.Row.Cells[0].Value;
+            dataSet1.DeleteUser(id);
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Profile test = new Profile();
+            test.Show();
         }
     }
 }

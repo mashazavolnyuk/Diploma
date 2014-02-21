@@ -53,19 +53,14 @@ namespace SmartKids
         //  данном случае необходимо обработать событие удаления запсис в datagidview  и сохранить это дело в файл
 
         internal void DeleteUser(int id)
-        {
+        {  
+            //пишем запрос в котором получаем все записи с user_id == нашему удаляемому ID 
             DataRow temp = (from DataRow row in Users.Rows where (int)row[Users.user_idColumn] == id select row).ToList()[0];
-            //пишем запрос в котором получаем все записи с user_id == нашему удаляемому ID - 
-            /// плучили записи, но мы то знаем, что user_id уникальный и другой таой просто нет,
-            /// // поэтому м в наглую берем нуевой элемент полученного списка
-            /// // скажу больше - там по идее всегда один элмент будет, и помещаем эго в отдельнуюю переенную,
-            /// и теперь эту переменную отдаем в качестве параметра для даленияиз БД
-            /// и сохраняем измеения
-            /// воть...
-
+           
             Users.Rows.Remove(temp);
             SaveChanges();
         }
+
 
         #region Работа с левелами
 
@@ -103,12 +98,9 @@ namespace SmartKids
 
         #region Работа с юзерами
         public bool New_User(string Name,string Pass,Gender g) {
-
-
             List<string> rows = (from DataRow U in Users.Rows where U[Users.user_nameColumn].ToString() == Name select U[Users.user_nameColumn].ToString()).ToList();
             if (rows.Contains(Name))
                 return false;
-
             DataRow newUser = Users.NewRow();
             newUser[Users.user_nameColumn] = Name;
             newUser[Users.passColumn] = Pass;
@@ -116,12 +108,16 @@ namespace SmartKids
             Users.Rows.Add(newUser);
              SaveChanges();
              return true;
-
-
         }
 
 
-
+        private int Search_ID_User(string name_user)
+        {
+            int id = (from DataRow IT in Users.Rows
+                      where IT[Users.user_nameColumn] == name_user
+                      select (int)IT[Users.user_idColumn]).ToList()[0];
+            return id;
+        }
 
 #endregion
 
@@ -135,6 +131,7 @@ namespace SmartKids
             AcceptChanges();
             WriteXml(Properties.Resources.dataBasePath);
         }
+
 
         internal List<string> GetCat()
         {

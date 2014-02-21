@@ -1014,6 +1014,8 @@ namespace SmartKids {
             
             private global::System.Data.DataColumn columnid_cat;
             
+            private global::System.Data.DataColumn columnimagePath;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SubcategortDataTable() {
@@ -1073,6 +1075,14 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn imagePathColumn {
+                get {
+                    return this.columnimagePath;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1108,12 +1118,13 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SubcategortRow AddSubcategortRow(string name, CategotyRow parentCategotyRowByFK_Categoty_Subcategort) {
+            public SubcategortRow AddSubcategortRow(string name, CategotyRow parentCategotyRowByFK_Categoty_Subcategort, string imagePath) {
                 SubcategortRow rowSubcategortRow = ((SubcategortRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         name,
-                        null};
+                        null,
+                        imagePath};
                 if ((parentCategotyRowByFK_Categoty_Subcategort != null)) {
                     columnValuesArray[2] = parentCategotyRowByFK_Categoty_Subcategort[0];
                 }
@@ -1142,6 +1153,7 @@ namespace SmartKids {
                 this.columnsub_id = base.Columns["sub_id"];
                 this.columnname = base.Columns["name"];
                 this.columnid_cat = base.Columns["id_cat"];
+                this.columnimagePath = base.Columns["imagePath"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1153,6 +1165,8 @@ namespace SmartKids {
                 base.Columns.Add(this.columnname);
                 this.columnid_cat = new global::System.Data.DataColumn("id_cat", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_cat);
+                this.columnimagePath = new global::System.Data.DataColumn("imagePath", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnimagePath);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnsub_id}, false));
                 this.columnsub_id.AutoIncrement = true;
@@ -1290,7 +1304,7 @@ namespace SmartKids {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class TasksDataTable : global::System.Data.TypedTableBase<TasksRow> {
             
-            private global::System.Data.DataColumn columnresurs;
+            private global::System.Data.DataColumn columnimagePath;
             
             private global::System.Data.DataColumn columneng_word;
             
@@ -1335,9 +1349,9 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn resursColumn {
+            public global::System.Data.DataColumn imagePathColumn {
                 get {
-                    return this.columnresurs;
+                    return this.columnimagePath;
                 }
             }
             
@@ -1410,10 +1424,10 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TasksRow AddTasksRow(string resurs, string eng_word, string rus_word, SubcategortRow parentSubcategortRowByFK_Subcategort_Tasks) {
+            public TasksRow AddTasksRow(string imagePath, string eng_word, string rus_word, SubcategortRow parentSubcategortRowByFK_Subcategort_Tasks) {
                 TasksRow rowTasksRow = ((TasksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        resurs,
+                        imagePath,
                         eng_word,
                         null,
                         rus_word,
@@ -1443,7 +1457,7 @@ namespace SmartKids {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnresurs = base.Columns["resurs"];
+                this.columnimagePath = base.Columns["imagePath"];
                 this.columneng_word = base.Columns["eng_word"];
                 this.columnid_task = base.Columns["id_task"];
                 this.columnrus_word = base.Columns["rus_word"];
@@ -1453,8 +1467,8 @@ namespace SmartKids {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnresurs = new global::System.Data.DataColumn("resurs", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnresurs);
+                this.columnimagePath = new global::System.Data.DataColumn("imagePath", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnimagePath);
                 this.columneng_word = new global::System.Data.DataColumn("eng_word", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columneng_word);
                 this.columnid_task = new global::System.Data.DataColumn("id_task", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1908,6 +1922,22 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string imagePath {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubcategort.imagePathColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'imagePath\' в таблице \'Subcategort\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubcategort.imagePathColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CategotyRow CategotyRow {
                 get {
                     return ((CategotyRow)(this.GetParentRow(this.Table.ParentRelations["FK_Categoty_Subcategort"])));
@@ -1955,6 +1985,18 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsimagePathNull() {
+                return this.IsNull(this.tableSubcategort.imagePathColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetimagePathNull() {
+                this[this.tableSubcategort.imagePathColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TasksRow[] GetTasksRows() {
                 if ((this.Table.ChildRelations["FK_Subcategort_Tasks"] == null)) {
                     return new TasksRow[0];
@@ -1981,17 +2023,17 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string resurs {
+            public string imagePath {
                 get {
                     try {
-                        return ((string)(this[this.tableTasks.resursColumn]));
+                        return ((string)(this[this.tableTasks.imagePathColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'resurs\' в таблице \'Tasks\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'imagePath\' в таблице \'Tasks\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTasks.resursColumn] = value;
+                    this[this.tableTasks.imagePathColumn] = value;
                 }
             }
             
@@ -2072,14 +2114,14 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsresursNull() {
-                return this.IsNull(this.tableTasks.resursColumn);
+            public bool IsimagePathNull() {
+                return this.IsNull(this.tableTasks.imagePathColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetresursNull() {
-                this[this.tableTasks.resursColumn] = global::System.Convert.DBNull;
+            public void SetimagePathNull() {
+                this[this.tableTasks.imagePathColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

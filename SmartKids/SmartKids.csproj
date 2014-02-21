@@ -72,6 +72,12 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartWin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <EmbeddedResource Include="add_user.resx">
       <DependentUpon>add_user.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartWin.resx">
       <DependentUpon>StartWin.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +118,7 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="DataSet1.xsd">
       <SubType>Designer</SubType>
