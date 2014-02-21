@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SmartKids.Enums;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -22,31 +23,31 @@ namespace SmartKids
         }
 
 
-        public bool AddUser(string name)
-        {
-            List<DataRow> rows = (from DataRow row in Users.Rows where row[Users.user_nameColumn].ToString() == name select row).ToList();
-            // хвучит это так - ИЗ списка строк в таблице с пользователями ГДЕ имя пользователя в таблице совпадает с именем нового пользователя ВЫБИРАЕМ строку и полученный обыект от такого запроса преобразовываем в список строк
+        //public bool AddUser(string name)
+        //{
+        //    List<DataRow> rows = (from DataRow row in Users.Rows where row[Users.user_nameColumn].ToString() == name select row).ToList();
+        //    // хвучит это так - ИЗ списка строк в таблице с пользователями ГДЕ имя пользователя в таблице совпадает с именем нового пользователя ВЫБИРАЕМ строку и полученный обыект от такого запроса преобразовываем в список строк
 
-            if (rows.Count == 0) //если строк с таким именем как у нового пользователя не найдено
-            {
-                //добавляем пользователя в БД
+        //    if (rows.Count == 0) //если строк с таким именем как у нового пользователя не найдено
+        //    {
+        //        //добавляем пользователя в БД
 
-                DataRow newUser = Users.NewRow();
-                newUser[Users.user_nameColumn] = name;
-                newUser["points"] = 0;
+        //        DataRow newUser = Users.NewRow();
+        //        newUser[Users.user_nameColumn] = name;
+        //        newUser["points"] = 0;
 
 
-                Users.Rows.Add(newUser);
+        //        Users.Rows.Add(newUser);
 
-                //сохранять - если данных не много, то так  удобнее :
-                SaveChanges();
-                return true;
+        //        //сохранять - если данных не много, то так  удобнее :
+        //        SaveChanges();
+        //        return true;
 
-                //это мы добавляем в базу пользователя
-            }
+        //        //это мы добавляем в базу пользователя
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
         // все изменения в БД нужно сохранять в файл, т.е. после любй операции , будь то добавлени/удаление/редактрование - нужно производитьзапись в xml файл, иначе при запуске читать будет из файла, а если изменений там нет то стственно все останется по старому. 
         //  данном случае необходимо обработать событие удаления запсис в datagidview  и сохранить это дело в файл
@@ -101,13 +102,22 @@ namespace SmartKids
         #endregion
 
         #region Работа с юзерами
-        public void New_User(string Name,string Pass,) { 
-        
-        
-        
-        
-        
-        
+        public bool New_User(string Name,string Pass,Gender g) {
+
+
+            List<string> rows = (from DataRow U in Users.Rows where U[Users.user_nameColumn].ToString() == Name select U[Users.user_nameColumn].ToString()).ToList();
+            if (rows.Contains(Name))
+                return false;
+
+            DataRow newUser = Users.NewRow();
+            newUser[Users.user_nameColumn] = Name;
+            newUser[Users.passColumn] = Pass;
+            newUser[Users.GenderColumn] = g;
+            Users.Rows.Add(newUser);
+             SaveChanges();
+             return true;
+
+
         }
 
 
