@@ -68,5 +68,16 @@ namespace SmartKids
 
             dataSet1.DeleteUser(id);
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Add_category a = new Add_category();
+            a.Show();
+        }
     }
 }

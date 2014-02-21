@@ -9,36 +9,40 @@ namespace SmartKids
 
     public partial class DataSet1
     {
+        partial class SubcategortDataTable
+        {
+        }
+    
         partial class TasksDataTable
         {
         }
-    
+
         partial class CategotyDataTable
         {
         }
-    
+
+
         public bool AddUser(string name)
         {
-            List<DataRow> rows = (from DataRow row in Users.Rows where row[Users.user_nameColumn].ToString() == name select row).ToList(); 
+            List<DataRow> rows = (from DataRow row in Users.Rows where row[Users.user_nameColumn].ToString() == name select row).ToList();
             // хвучит это так - ИЗ списка строк в таблице с пользователями ГДЕ имя пользователя в таблице совпадает с именем нового пользователя ВЫБИРАЕМ строку и полученный обыект от такого запроса преобразовываем в список строк
-            
+
             if (rows.Count == 0) //если строк с таким именем как у нового пользователя не найдено
             {
                 //добавляем пользователя в БД
 
-            DataRow newUser = Users.NewRow();
-            newUser[Users.user_nameColumn] = name;
-            newUser["points"] = 0;
-           
+                DataRow newUser = Users.NewRow();
+                newUser[Users.user_nameColumn] = name;
+                newUser["points"] = 0;
 
-            Users.Rows.Add(newUser);
-            this.AcceptChanges();
 
-            //сохранять - если данных не много, то так  удобнее :
-            this.WriteXml("dataBase.xml");
-            return true;
+                Users.Rows.Add(newUser);
 
-            //это мы добавляем в базу пользователя
+                //сохранять - если данных не много, то так  удобнее :
+                SaveChanges();
+                return true;
+
+                //это мы добавляем в базу пользователя
             }
 
             return false;
@@ -57,10 +61,74 @@ namespace SmartKids
             /// и теперь эту переменную отдаем в качестве параметра для даленияиз БД
             /// и сохраняем измеения
             /// воть...
-            
+
             Users.Rows.Remove(temp);
-            this.AcceptChanges();
-            this.WriteXml("dataBase.xml");
+            SaveChanges();
+        }
+
+        #region Работа с левелами
+
+        //ДОБАВИТЬ категорию
+        internal void AddCategory(string name, string path)
+        {
+            DataRow row = Categoty.NewRow();
+            row[Categoty.nameColumn] = name; // все данные в row - всегда типа object
+            row[Categoty.imagePathColumn] = path;
+            Categoty.Rows.Add(row);
+            SaveChanges();
+
+        }
+
+        //ДОБАВИТЬ подкатегорию
+        public void SubCategory(string Name, string Cat) {
+
+            DataRow row = Subcategort.NewRow();
+            row[Subcategort.nameColumn] = Name;
+            int id_cat = Search_ID_CAT(Cat);
+            row[Subcategort.id_catColumn] = id_cat;
+            Subcategort.Rows.Add(row);
+            SaveChanges();
+
+
+        }
+        //получение id оталкиваясь от name 
+        private int Search_ID_CAT(string name_cat){
+            int id  =(from DataRow IT in Categoty.Rows 
+                      where IT[Categoty.nameColumn]==name_cat 
+                      select (int)IT[Categoty.cat_idColumn]).ToList()[0];
+            return id;
+        }
+        #endregion
+
+        #region Работа с юзерами
+        public void New_User(string Name,string Pass,) { 
+        
+        
+        
+        
+        
+        
+        }
+
+
+
+
+#endregion
+
+
+
+
+
+
+        private void SaveChanges()
+        {
+            AcceptChanges();
+            WriteXml(Properties.Resources.dataBasePath);
+        }
+
+        internal List<string> GetCat()
+        {
+            return (from DataRow d in Categoty.Rows select d[Categoty.nameColumn].ToString()).ToList();
         }
     }
 }

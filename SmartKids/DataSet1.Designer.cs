@@ -419,6 +419,8 @@ namespace SmartKids {
             
             private global::System.Data.DataColumn columnpoints;
             
+            private global::System.Data.DataColumn columnpass;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public UsersDataTable() {
@@ -478,6 +480,14 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn passColumn {
+                get {
+                    return this.columnpass;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -513,12 +523,13 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UsersRow AddUsersRow(string user_name, int points) {
+            public UsersRow AddUsersRow(string user_name, int points, string pass) {
                 UsersRow rowUsersRow = ((UsersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         user_name,
-                        points};
+                        points,
+                        pass};
                 rowUsersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUsersRow);
                 return rowUsersRow;
@@ -544,6 +555,7 @@ namespace SmartKids {
                 this.columnuser_id = base.Columns["user_id"];
                 this.columnuser_name = base.Columns["user_name"];
                 this.columnpoints = base.Columns["points"];
+                this.columnpass = base.Columns["pass"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -555,6 +567,8 @@ namespace SmartKids {
                 base.Columns.Add(this.columnuser_name);
                 this.columnpoints = new global::System.Data.DataColumn("points", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpoints);
+                this.columnpass = new global::System.Data.DataColumn("pass", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpass);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnuser_id}, false));
                 this.columnuser_id.AutoIncrement = true;
@@ -697,6 +711,8 @@ namespace SmartKids {
             
             private global::System.Data.DataColumn columnname;
             
+            private global::System.Data.DataColumn columnimagePath;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CategotyDataTable() {
@@ -748,6 +764,14 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn imagePathColumn {
+                get {
+                    return this.columnimagePath;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -783,11 +807,12 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CategotyRow AddCategotyRow(string name) {
+            public CategotyRow AddCategotyRow(string name, string imagePath) {
                 CategotyRow rowCategotyRow = ((CategotyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        name};
+                        name,
+                        imagePath};
                 rowCategotyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCategotyRow);
                 return rowCategotyRow;
@@ -819,6 +844,7 @@ namespace SmartKids {
             internal void InitVars() {
                 this.columncat_id = base.Columns["cat_id"];
                 this.columnname = base.Columns["name"];
+                this.columnimagePath = base.Columns["imagePath"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -828,6 +854,8 @@ namespace SmartKids {
                 base.Columns.Add(this.columncat_id);
                 this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname);
+                this.columnimagePath = new global::System.Data.DataColumn("imagePath", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnimagePath);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("CategotyKey1", new global::System.Data.DataColumn[] {
                                 this.columncat_id}, true));
                 this.columncat_id.AutoIncrement = true;
@@ -1618,6 +1646,22 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string pass {
+                get {
+                    try {
+                        return ((string)(this[this.tableUsers.passColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'pass\' в таблице \'Users\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUsers.passColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isuser_idNull() {
                 return this.IsNull(this.tableUsers.user_idColumn);
             }
@@ -1650,6 +1694,18 @@ namespace SmartKids {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetpointsNull() {
                 this[this.tableUsers.pointsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IspassNull() {
+                return this.IsNull(this.tableUsers.passColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetpassNull() {
+                this[this.tableUsers.passColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1696,6 +1752,22 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string imagePath {
+                get {
+                    try {
+                        return ((string)(this[this.tableCategoty.imagePathColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'imagePath\' в таблице \'Categoty\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCategoty.imagePathColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsnameNull() {
                 return this.IsNull(this.tableCategoty.nameColumn);
             }
@@ -1704,6 +1776,18 @@ namespace SmartKids {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetnameNull() {
                 this[this.tableCategoty.nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsimagePathNull() {
+                return this.IsNull(this.tableCategoty.imagePathColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetimagePathNull() {
+                this[this.tableCategoty.imagePathColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

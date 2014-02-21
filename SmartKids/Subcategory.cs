@@ -9,11 +9,14 @@ namespace SmartKids
     class Subcategory
     {
 
-
-
-
-
         private string name;
         private int ID;
+        public Subcategory(string Name)
+        {
+
+            this.name = Name;
+
+
+        }
     }
 }

@@ -44,6 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_category.Designer.cs">
+      <DependentUpon>Add_category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_subcategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_subcategory.Designer.cs">
+      <DependentUpon>Add_subcategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -65,6 +77,12 @@
     <Compile Include="Task.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Сategory.cs" />
+    <EmbeddedResource Include="Add_category.resx">
+      <DependentUpon>Add_category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_subcategory.resx">
+      <DependentUpon>Add_subcategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartWin.resx">
       <DependentUpon>StartWin.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,6 +94,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="DataSet1.xsc">
