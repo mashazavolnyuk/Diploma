@@ -41,15 +41,18 @@ namespace SmartKids
             for (int i = 0; i < cat.Count; i++)
             {
                 PictureBox picBox = new PictureBox();
-                picBox.Location = new System.Drawing.Point(70+i, i+70);
-                picBox.Size = new System.Drawing.Size(120, 120);
-                picBox.TabStop = false;
-                picBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                picBox.BorderStyle = BorderStyle.Fixed3D;
-                 picBox.Image = Image.FromFile(cat[i]);
-                this.Controls.Add(picBox);//comit
-                
+                picBox.Size = new Size(120,120);
+                picBox.SizeMode = PictureBoxSizeMode.Zoom;
+                 picBox.Image = Image.FromFile(cat[i]);                
+                tableLayoutPanel1.Controls.Add(picBox);
+            }
+        }
 
+        private void tableLayoutPanel1_ControlAdded(object sender, ControlEventArgs e)
+        {
+            for (int q = 0; q < tableLayoutPanel1.RowStyles.Count; q++)
+            {
+                tableLayoutPanel1.RowStyles[q].Height = 120;
             }
         }
 
