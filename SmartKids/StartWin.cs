@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartKids.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using System.Net.Mail;
 
 
 
@@ -22,8 +25,10 @@ namespace SmartKids
         }
 
         private void StartWin_Load(object sender, EventArgs e)
-        {
+        {  
+            string[] names = Enum.GetNames(typeof (Gender));
             dataSet1.ReadXml("dataBase.xml");
+            comboBox1.DataSource = names;
 
         }
 
@@ -33,18 +38,6 @@ namespace SmartKids
            
         }
 
-        //private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        //{
-        //    //получаем id удаляемой записи
-        //    int id = (int)e.Row.Cells[0].Value; // в первой ячейке датагрда находится индекс записи
-
-        //    dataSet1.DeleteUser(id);
-        //}
-
-        //private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-
-        //}
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -66,8 +59,13 @@ namespace SmartKids
         }
 
         private void button1_Click_1(object sender, EventArgs e)
-        {
-            Profile test = new Profile();
+        {   
+            
+         
+            
+          
+            
+            Profile test = new Profile(textBox1.Text);
             test.Show();
         }
     }

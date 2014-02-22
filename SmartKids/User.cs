@@ -14,16 +14,15 @@ namespace SmartKids
         private int id;
         private string name;//имя
         private string pass;//пароль
-        //private bool s;//true-мальчик false-девочка
-        private Gender s; //чито за жесть пол через bool выражать
+        private Gender s; //пол
         private int coin;//количество монет
         private List<int> award = new List<int>();//список наград..id
+
         public User(string Name, string Pass, Gender S) {
             this.name = Name;
             this.pass = Pass;
             this.s = S;
         }
-
 
         public void AddCoin(int number) {// прибавить золото
             coin += number;

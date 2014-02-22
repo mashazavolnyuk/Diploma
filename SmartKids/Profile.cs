@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartKids.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,14 +12,37 @@ using System.Windows.Forms;
 namespace SmartKids
 {
     public partial class Profile : Form
-    {
-        public Profile()
+    {   
+       private string name_user;
+      
+
+        public Profile(string Name_user)
         {
+           
             InitializeComponent();
+            Show_profile( Name_user);
+            
+            
         }
+
+
+        private void Show_profile(string Name_user)
+        {
+
+            label1.Text = Name_user;
+            
+
+           
+
+        }
+
 
         private void Profile_Load(object sender, EventArgs e)
         {
+
+            List<Сategory> cat = new List<Сategory>();
+            
+
             for (int i = 0; i < 10; i++)
             {
                 PictureBox picBox = new PictureBox();
@@ -31,5 +55,6 @@ namespace SmartKids
                 this.Controls.Add(picBox);
             }
         }
+
     }
 }
