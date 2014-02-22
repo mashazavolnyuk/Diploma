@@ -39,7 +39,10 @@ namespace SmartKids
                 if (!Directory.Exists("CategoryRecource"))
                 {
                     Directory.CreateDirectory("CategoryResource");
-                    File.Copy(picturePath, "CategoryResource/" + newname);
+                    if (!File.Exists("CategoryResource/" + newname))
+                    {
+                        File.Copy(picturePath, "CategoryResource/" + newname);
+                    }
                 }
                 else
                 {
