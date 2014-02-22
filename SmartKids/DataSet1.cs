@@ -68,6 +68,7 @@ namespace SmartKids
 
         }
 
+
         //ДОБАВИТЬ подкатегорию
         public void SubCategory(string Name, string Cat) {
 
@@ -80,12 +81,22 @@ namespace SmartKids
 
 
         }
+
         //получение id оталкиваясь от name 
         private int Search_ID_CAT(string name_cat){
             int id  =(from DataRow IT in Categoty.Rows 
                       where IT[Categoty.nameColumn]==name_cat 
                       select (int)IT[Categoty.cat_idColumn]).ToList()[0];
             return id;
+        }
+        //получение нахождения ресурсов оталкиваясь от name
+ 
+        public string Search_IMAGE_CAT(string name_cat)
+        {
+            string name_resurs = (from DataRow IT in Categoty.Rows
+                      where IT[Categoty.nameColumn] == name_cat
+                         select (string)IT[Categoty.imagePathColumn]).ToList()[0];
+            return name_resurs;
         }
 
         public void Add_Task(string Eng_word, string Rus_word, string Sub_name, string path)
@@ -158,9 +169,19 @@ namespace SmartKids
         }
 
 
-        internal List<string> GetCat()
+        internal List<string> GetCat_name()
         {
             return (from DataRow d in Categoty.Rows select d[Categoty.nameColumn].ToString()).ToList();
         }
+
+
+
+        internal List<string> GetCat_Resurs()
+        {
+            return (from DataRow d in Categoty.Rows select d[Categoty.imagePathColumn].ToString()).ToList();
+        }
+
+
+
     }
 }

@@ -11,10 +11,11 @@ namespace SmartKids
         private bool open;//открытость категории.for User
         private string name;//название
         private int coin;//стоимость
+        public string Picter;
         List<int> subcategory = new List<int>();//список подкатегорий..id
-        public Сategory(string Name) {
+        public Сategory(string Name,string picter) {
          this.name = Name;
-           
+         this.Picter = picter;
         }
     
     }
