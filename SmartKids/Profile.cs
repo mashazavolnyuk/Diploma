@@ -47,7 +47,9 @@ namespace SmartKids
                 picBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 picBox.BorderStyle = BorderStyle.Fixed3D;
                  picBox.Image = Image.FromFile(cat[i]);
-                this.Controls.Add(picBox);
+                this.Controls.Add(picBox);//comit
+                
+
             }
         }
 
