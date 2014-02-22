@@ -23,12 +23,11 @@ namespace SmartKids
             {
                 PictureBox picBox = new PictureBox();
                 picBox.Location = new System.Drawing.Point(10, i * 30);
-                picBox.Size = new System.Drawing.Size(20, 20);
+                picBox.Size = new System.Drawing.Size(40, 40);
                 picBox.TabStop = false;
                 picBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 picBox.BorderStyle = BorderStyle.Fixed3D;
 
-               
                 this.Controls.Add(picBox);
             }
         }

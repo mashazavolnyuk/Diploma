@@ -52,14 +52,7 @@ namespace SmartKids
         // все изменения в БД нужно сохранять в файл, т.е. после любй операции , будь то добавлени/удаление/редактрование - нужно производитьзапись в xml файл, иначе при запуске читать будет из файла, а если изменений там нет то стственно все останется по старому. 
         //  данном случае необходимо обработать событие удаления запсис в datagidview  и сохранить это дело в файл
 
-        internal void DeleteUser(int id)
-        {  
-            //пишем запрос в котором получаем все записи с user_id == нашему удаляемому ID 
-            DataRow temp = (from DataRow row in Users.Rows where (int)row[Users.user_idColumn] == id select row).ToList()[0];
-           
-            Users.Rows.Remove(temp);
-            SaveChanges();
-        }
+        
 
 
         #region Работа с левелами
@@ -94,6 +87,29 @@ namespace SmartKids
                       select (int)IT[Categoty.cat_idColumn]).ToList()[0];
             return id;
         }
+
+        public void Add_Task(string Eng_word, string Rus_word, string Sub_name, string path)
+        {
+            DataRow row = Tasks.NewRow();
+            row[Tasks.eng_wordColumn] = Eng_word;
+            row[Tasks.rus_wordColumn] = Rus_word;
+           int id= Get_ID_TASK(Sub_name);
+           row[Tasks.sud_idColumn] = id;
+           row[Tasks.imagePathColumn] = path;
+        }
+
+
+        private int Get_ID_TASK(string Sub_name)
+        {
+            int id = (from DataRow IT in Subcategort.Rows
+                      where IT[Subcategort.nameColumn] == Sub_name
+                      select (int)IT[Subcategort.sub_idColumn]).ToList()[0];
+            return id;
+        }
+
+
+
+
         #endregion
 
         #region Работа с юзерами
@@ -117,6 +133,15 @@ namespace SmartKids
                       where IT[Users.user_nameColumn] == name_user
                       select (int)IT[Users.user_idColumn]).ToList()[0];
             return id;
+        }
+
+        internal void DeleteUser(int id)
+        {
+            //пишем запрос в котором получаем все записи с user_id == нашему удаляемому ID 
+            DataRow temp = (from DataRow row in Users.Rows where (int)row[Users.user_idColumn] == id select row).ToList()[0];
+
+            Users.Rows.Remove(temp);
+            SaveChanges();
         }
 
 #endregion

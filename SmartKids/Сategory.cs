@@ -12,7 +12,6 @@ namespace SmartKids
         private string name;//название
         private int coin;//стоимость
         List<int> subcategory = new List<int>();//список подкатегорий..id
-
         public Сategory(string Name, int Coin, List<int> Subcategory) {
             this.name = Name;
             this.coin = Coin;
