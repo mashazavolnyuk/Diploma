@@ -56,6 +56,12 @@
     <Compile Include="Add_subcategory.Designer.cs">
       <DependentUpon>Add_subcategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add_Task.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Task.Designer.cs">
+      <DependentUpon>Add_Task.cs</DependentUpon>
+    </Compile>
     <Compile Include="add_user.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     <Compile Include="Profile.Designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Show_subcat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Show_subcat.Designer.cs">
+      <DependentUpon>Show_subcat.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartWin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,11 +108,17 @@
     <EmbeddedResource Include="Add_subcategory.resx">
       <DependentUpon>Add_subcategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add_Task.resx">
+      <DependentUpon>Add_Task.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="add_user.resx">
       <DependentUpon>add_user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Show_subcat.resx">
+      <DependentUpon>Show_subcat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartWin.resx">
       <DependentUpon>StartWin.cs</DependentUpon>

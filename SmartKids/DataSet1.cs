@@ -13,7 +13,7 @@ namespace SmartKids
         partial class SubcategortDataTable
         {
         }
-    
+
         partial class TasksDataTable
         {
         }
@@ -21,40 +21,6 @@ namespace SmartKids
         partial class CategotyDataTable
         {
         }
-
-
-        //public bool AddUser(string name)
-        //{
-        //    List<DataRow> rows = (from DataRow row in Users.Rows where row[Users.user_nameColumn].ToString() == name select row).ToList();
-        //    // хвучит это так - ИЗ списка строк в таблице с пользователями ГДЕ имя пользователя в таблице совпадает с именем нового пользователя ВЫБИРАЕМ строку и полученный обыект от такого запроса преобразовываем в список строк
-
-        //    if (rows.Count == 0) //если строк с таким именем как у нового пользователя не найдено
-        //    {
-        //        //добавляем пользователя в БД
-
-        //        DataRow newUser = Users.NewRow();
-        //        newUser[Users.user_nameColumn] = name;
-        //        newUser["points"] = 0;
-
-
-        //        Users.Rows.Add(newUser);
-
-        //        //сохранять - если данных не много, то так  удобнее :
-        //        SaveChanges();
-        //        return true;
-
-        //        //это мы добавляем в базу пользователя
-        //    }
-
-        //    return false;
-        //}
-
-        // все изменения в БД нужно сохранять в файл, т.е. после любй операции , будь то добавлени/удаление/редактрование - нужно производитьзапись в xml файл, иначе при запуске читать будет из файла, а если изменений там нет то стственно все останется по старому. 
-        //  данном случае необходимо обработать событие удаления запсис в datagidview  и сохранить это дело в файл
-
-        
-
-
         #region Работа с левелами
 
         //ДОБАВИТЬ категорию
@@ -70,7 +36,8 @@ namespace SmartKids
 
 
         //ДОБАВИТЬ подкатегорию
-        public void SubCategory(string Name, string Cat) {
+        public void SubCategory(string Name, string Cat)
+        {
 
             DataRow row = Subcategort.NewRow();
             row[Subcategort.nameColumn] = Name;
@@ -83,19 +50,20 @@ namespace SmartKids
         }
 
         //получение id оталкиваясь от name 
-        private int Search_ID_CAT(string name_cat){
-            int id  =(from DataRow IT in Categoty.Rows 
-                      where IT[Categoty.nameColumn]==name_cat 
+        private int Search_ID_CAT(string name_cat)
+        {
+            int id = (from DataRow IT in Categoty.Rows
+                      where IT[Categoty.nameColumn] == name_cat
                       select (int)IT[Categoty.cat_idColumn]).ToList()[0];
             return id;
         }
         //получение нахождения ресурсов оталкиваясь от name
- 
+
         public string Search_IMAGE_CAT(string name_cat)
         {
             string name_resurs = (from DataRow IT in Categoty.Rows
-                      where IT[Categoty.nameColumn] == name_cat
-                         select (string)IT[Categoty.imagePathColumn]).ToList()[0];
+                                  where IT[Categoty.nameColumn] == name_cat
+                                  select (string)IT[Categoty.imagePathColumn]).ToList()[0];
             return name_resurs;
         }
 
@@ -104,9 +72,9 @@ namespace SmartKids
             DataRow row = Tasks.NewRow();
             row[Tasks.eng_wordColumn] = Eng_word;
             row[Tasks.rus_wordColumn] = Rus_word;
-           int id= Get_ID_TASK(Sub_name);
-           row[Tasks.sud_idColumn] = id;
-           row[Tasks.imagePathColumn] = path;
+            int id = Get_ID_TASK(Sub_name);
+            row[Tasks.sud_idColumn] = id;
+            row[Tasks.imagePathColumn] = path;
         }
 
 
@@ -118,13 +86,33 @@ namespace SmartKids
             return id;
         }
 
+        internal List<string> GetCat_name()
+        {
+            return (from DataRow d in Categoty.Rows select d[Categoty.nameColumn].ToString()).ToList();
+        }
+
+
+
+        internal List<int> GetCat_ID()
+        {
+            return (from DataRow d in Categoty.Rows select (int)d[Categoty.cat_idColumn]).ToList();
+        }
+
+
+
+
+        internal string Get_Resurs(int p)
+        {
+            return (from DataRow d in Categoty.Rows where (int)d[Categoty.cat_idColumn] == p select d[Categoty.imagePathColumn].ToString()).ToList()[0];
+        }
 
 
 
         #endregion
 
         #region Работа с юзерами
-        public bool New_User(string Name,string Pass,Gender g) {
+        public bool New_User(string Name, string Pass, Gender g)
+        {
             List<string> rows = (from DataRow U in Users.Rows where U[Users.user_nameColumn].ToString() == Name select U[Users.user_nameColumn].ToString()).ToList();
             if (rows.Contains(Name))
                 return false;
@@ -133,8 +121,8 @@ namespace SmartKids
             newUser[Users.passColumn] = Pass;
             newUser[Users.GenderColumn] = g;
             Users.Rows.Add(newUser);
-             SaveChanges();
-             return true;
+            SaveChanges();
+            return true;
         }
 
 
@@ -155,30 +143,13 @@ namespace SmartKids
             SaveChanges();
         }
 
-#endregion
+        #endregion
 
 
-
-
-
-
-        private void SaveChanges()
+        public void SaveChanges()
         {
             AcceptChanges();
             WriteXml(Properties.Resources.dataBasePath);
-        }
-
-
-        internal List<string> GetCat_name()
-        {
-            return (from DataRow d in Categoty.Rows select d[Categoty.nameColumn].ToString()).ToList();
-        }
-
-
-
-        internal List<string> GetCat_Resurs()
-        {
-            return (from DataRow d in Categoty.Rows select d[Categoty.imagePathColumn].ToString()).ToList();
         }
 
 

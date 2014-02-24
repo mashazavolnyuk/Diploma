@@ -15,15 +15,16 @@ namespace SmartKids
     {   
        private string name_user;
        //Загрузка сатегорий в лист
-       List<string> cat = new List<string>();
+       List<int> cat = new List<int>();//id категорий
        
+
 
         public Profile(string Name_user)
         {
            
             InitializeComponent();
             Show_profile( Name_user);
-            cat = Program.dataset.GetCat_Resurs();
+            cat = Program.dataset.GetCat_ID();
                       
         }
 
@@ -43,9 +44,20 @@ namespace SmartKids
                 PictureBox picBox = new PictureBox();
                 picBox.Size = new Size(120,120);
                 picBox.SizeMode = PictureBoxSizeMode.Zoom;
-                 picBox.Image = Image.FromFile(cat[i]);                
+                picBox.Image = Image.FromFile(Program.dataset.Get_Resurs(cat[i]));
+                    picBox.Tag = cat[i];
+                picBox.Click += picBox_Click;
                 tableLayoutPanel1.Controls.Add(picBox);
             }
+        }
+
+
+
+
+        void picBox_Click(object sender, EventArgs e)
+        {
+            Show_subcat s = new Show_subcat((int)(sender as PictureBox).Tag);
+            s.Show();
         }
 
         private void tableLayoutPanel1_ControlAdded(object sender, ControlEventArgs e)
