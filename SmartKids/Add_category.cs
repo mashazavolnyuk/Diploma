@@ -59,8 +59,17 @@ namespace SmartKids
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 picturePath = openFileDialog1.FileName;
+                try
+                {
+                    Bitmap b = new Bitmap(picturePath);
 
-                button1.Enabled = true;
+                    pictureBox1.Image = b;
+                    button1.Enabled = true;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Выбранный файл - не изображение");
+                }
             }
         }
 
@@ -74,6 +83,7 @@ namespace SmartKids
         private void button3_Click(object sender, EventArgs e)
         {
             Add_new_cat(textBox1.Text);
+            MessageBox.Show("Категория сохранена");
         }
     }
 }
