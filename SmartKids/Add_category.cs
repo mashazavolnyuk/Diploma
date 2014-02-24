@@ -75,7 +75,7 @@ namespace SmartKids
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Add_subcategory sub = new Add_subcategory();
+            Add_subcategory sub = new Add_subcategory(textBox1.Text);
             sub.Show();
 
         }

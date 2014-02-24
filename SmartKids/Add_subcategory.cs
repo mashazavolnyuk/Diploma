@@ -16,22 +16,24 @@ namespace SmartKids
 
         string picturePath;
         string Catalog = "SubcategoryRecource";
-        public Add_subcategory()
+        private string selNmae;
+        public Add_subcategory(string name)
         {
             InitializeComponent();
+            selNmae = name;
         }
 
 
         private void Add_subcategory_Load(object sender, EventArgs e)
         {
             comboBox1.DataSource = Program.dataset.GetCat_name();
-               
+            comboBox1.SelectedItem = selNmae;
 
         }
 
         private void Load_cat()
         {
-           
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -43,14 +45,14 @@ namespace SmartKids
         private void button1_Click(object sender, EventArgs e)
         {
             string category = comboBox1.SelectedItem.ToString();
-            int id_category=Program.dataset.Search_ID_CAT(category);
+            int id_category = Program.dataset.Search_ID_CAT(category);
             Add_new_sub_cat(id_category, textBox1.Text);
 
         }
 
 
         //Добавление новой подкатегории
-        private void Add_new_sub_cat(int id_cat,string name_sub)
+        private void Add_new_sub_cat(int id_cat, string name_sub)
         {
 
 
@@ -70,10 +72,33 @@ namespace SmartKids
                 }
                 else
                 {
-                    File.Copy(picturePath, Catalog);
+                    File.Copy(picturePath, Catalog + newname);
                 }
 
                 Program.dataset.SubCategory(id_cat, name_sub, Catalog + newname);
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                picturePath = openFileDialog1.FileName;
+                try
+                {
+                    Bitmap b = new Bitmap(picturePath);
+
+                    pictureBox1.Image = b;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Выбранный файл - не изображение");
+                }
             }
         }
 
