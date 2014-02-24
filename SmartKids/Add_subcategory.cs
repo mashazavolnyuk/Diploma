@@ -15,6 +15,7 @@ namespace SmartKids
     {
 
         string picturePath;
+        string Catalog = "SubcategoryRecource";
         public Add_subcategory()
         {
             InitializeComponent();
@@ -42,42 +43,37 @@ namespace SmartKids
         private void button1_Click(object sender, EventArgs e)
         {
             string category = comboBox1.SelectedItem.ToString();
-
-
-            
-            
-            
-            //По name категории найти id 
-
+            int id_category=Program.dataset.Search_ID_CAT(category);
+            Add_new_sub_cat(id_category, textBox1.Text);
 
         }
 
 
         //Добавление новой подкатегории
-        private void Add_new_sub_cat(string name_cat,string name_sub)
+        private void Add_new_sub_cat(int id_cat,string name_sub)
         {
 
 
             string newname = picturePath.Split(new Char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries).Last();
 
+
             if (textBox1.Text != String.Empty && picturePath != String.Empty)
             {
 
-                if (!Directory.Exists("SubcategoryRecource"))
+                if (!Directory.Exists(Catalog))
                 {
-                    Directory.CreateDirectory("SubcategoryRecource");
-                    if (!File.Exists("SubcategoryRecource/" + newname))
+                    Directory.CreateDirectory(Catalog);
+                    if (!File.Exists(Catalog + newname))
                     {
-                        File.Copy(picturePath, "SubcategoryRecource/" + newname);
+                        File.Copy(picturePath, Catalog + newname);
                     }
                 }
                 else
                 {
-                    File.Copy(picturePath, "SubcategoryRecource");
+                    File.Copy(picturePath, Catalog);
                 }
 
-
-               // Program.dataset.AddCategory(name, "SubcategoryRecource/" + newname);
+                Program.dataset.SubCategory(id_cat, name_sub, Catalog + newname);
             }
         }
 

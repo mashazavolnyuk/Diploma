@@ -36,21 +36,20 @@ namespace SmartKids
 
 
         //ДОБАВИТЬ подкатегорию
-        public void SubCategory(string Name, string Cat)
+        public void SubCategory(int category, string name_subcat, string path)
         {
 
             DataRow row = Subcategort.NewRow();
-            row[Subcategort.nameColumn] = Name;
-            int id_cat = Search_ID_CAT(Cat);
-            row[Subcategort.id_catColumn] = id_cat;
+            row[Subcategort.nameColumn] = name_subcat;
+            row[Subcategort.id_catColumn] = category;
+            row[Subcategort.imagePathColumn] = path;
             Subcategort.Rows.Add(row);
             SaveChanges();
-
 
         }
 
         //получение id оталкиваясь от name 
-        private int Search_ID_CAT(string name_cat)
+        public int Search_ID_CAT(string name_cat)
         {
             int id = (from DataRow IT in Categoty.Rows
                       where IT[Categoty.nameColumn] == name_cat
