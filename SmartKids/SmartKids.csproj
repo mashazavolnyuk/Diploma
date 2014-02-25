@@ -101,6 +101,12 @@
     <Compile Include="Subcategory.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="Win8BackButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Win8BackButton.Designer.cs">
+      <DependentUpon>Win8BackButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Сategory.cs" />
     <EmbeddedResource Include="Add_category.resx">
       <DependentUpon>Add_category.cs</DependentUpon>
@@ -133,6 +139,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Win8BackButton.resx">
+      <DependentUpon>Win8BackButton.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -158,6 +167,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\normal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
