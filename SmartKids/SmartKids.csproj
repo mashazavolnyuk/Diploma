@@ -90,6 +90,12 @@
     <Compile Include="Show_subcat.Designer.cs">
       <DependentUpon>Show_subcat.cs</DependentUpon>
     </Compile>
+    <Compile Include="START.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="START.Designer.cs">
+      <DependentUpon>START.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartWin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Show_subcat.resx">
       <DependentUpon>Show_subcat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="START.resx">
+      <DependentUpon>START.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartWin.resx">
       <DependentUpon>StartWin.cs</DependentUpon>

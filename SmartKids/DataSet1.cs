@@ -56,6 +56,7 @@ namespace SmartKids
                       select (int)IT[Categoty.cat_idColumn]).ToList()[0];
             return id;
         }
+
         //получение нахождения ресурсов оталкиваясь от name
 
         public string Search_IMAGE_CAT(string name_cat)
@@ -153,5 +154,14 @@ namespace SmartKids
 
 
 
+
+        internal List<string> Get_SUB_Cat_name()
+        {
+            return (from DataRow d in Subcategort.Rows select d[Subcategort.nameColumn].ToString()).ToList();
+        }
+
+
+
+        
     }
 }
