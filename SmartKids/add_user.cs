@@ -33,5 +33,10 @@ namespace SmartKids
             else
                 MessageBox.Show("Такой пользователь уже есть");
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
