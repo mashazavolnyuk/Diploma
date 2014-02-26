@@ -101,6 +101,12 @@
     <Compile Include="Subcategory.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="Win8ExitButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Win8ExitButton.Designer.cs">
+      <DependentUpon>Win8ExitButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Win8BackButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +145,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Win8ExitButton.resx">
+      <DependentUpon>Win8ExitButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Win8BackButton.resx">
       <DependentUpon>Win8BackButton.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +185,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitNorm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitPress.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
