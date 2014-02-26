@@ -38,7 +38,7 @@ namespace SmartKids
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Add_Task Task = new Add_Task();
+            Add_Task Task = new Add_Task(textBox1.Text);
             Task.Show();
         }
 
@@ -78,6 +78,11 @@ namespace SmartKids
                 Program.dataset.SubCategory(id_cat, name_sub, Catalog + newname);
             }
         }
+
+
+
+
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

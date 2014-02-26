@@ -77,18 +77,39 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entry.Designer.cs">
+      <DependentUpon>Entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enums\Gender.cs" />
+    <Compile Include="MyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Profile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Profile.Designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfileItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfileItemControl.Designer.cs">
+      <DependentUpon>ProfileItemControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Show_subcat.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Show_subcat.Designer.cs">
       <DependentUpon>Show_subcat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="START.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="START.Designer.cs">
+      <DependentUpon>START.cs</DependentUpon>
     </Compile>
     <Compile Include="StartWin.cs">
       <SubType>Form</SubType>
@@ -126,11 +147,23 @@
     <EmbeddedResource Include="add_user.resx">
       <DependentUpon>add_user.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Entry.resx">
+      <DependentUpon>Entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm.resx">
+      <DependentUpon>MyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProfileItemControl.resx">
+      <DependentUpon>ProfileItemControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Show_subcat.resx">
       <DependentUpon>Show_subcat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="START.resx">
+      <DependentUpon>START.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartWin.resx">
       <DependentUpon>StartWin.cs</DependentUpon>
