@@ -25,9 +25,11 @@ namespace SmartKids
 
 
             open_yes = Program.dataset.Open_YES(textBox4.Text, textBox5.Text);
+
             if (open_yes)
             {
                 Profile P = new Profile(textBox4.Text);
+                this.Close();
                 P.Show();
             }
             else
