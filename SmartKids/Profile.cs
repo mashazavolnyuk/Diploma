@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SmartKids
 {
-    public partial class Profile : MyForm
+    public partial class Profile : Win8Form
     {
         private string name_user;
         //Загрузка сатегорий в лист

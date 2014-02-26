@@ -30,7 +30,7 @@ namespace SmartKids
                 Click(this, e);
         }
 
-        public event EventHandler Click;
+        public new event EventHandler Click;
 
 
         public Image Image
