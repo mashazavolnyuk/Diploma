@@ -29,8 +29,7 @@ namespace SmartKids
 
 
 
-            if (Program.dataset.New_User(textBox1.Text, textBox2.Text, gen)) ;
-            else
+            if (!Program.dataset.New_User(textBox1.Text, textBox2.Text, gen))
                 MessageBox.Show("Такой пользователь уже есть");
         }
 

@@ -145,6 +145,22 @@ namespace SmartKids
 
         #endregion
 
+        #region Проверка авторизации
+        internal bool Open_YES(string Name_user,string Pass)
+        {
+            string s = (from DataRow name in Users.Rows where name[Users.user_nameColumn].ToString() == Name_user select name[Users.passColumn].ToString()).ToList()[0];
+            if (s == Pass)
+                return true;
+            else
+                return false;
+                
+
+        }
+
+
+
+
+        #endregion
 
         public void SaveChanges()
         {
@@ -159,6 +175,8 @@ namespace SmartKids
         {
             return (from DataRow d in Subcategort.Rows select d[Subcategort.nameColumn].ToString()).ToList();
         }
+
+
 
 
 
