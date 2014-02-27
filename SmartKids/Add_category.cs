@@ -11,7 +11,7 @@ using System.IO;
 
 namespace SmartKids
 {
-    public partial class Add_category : Form
+    public partial class Add_category : Win8Form
     {
         string picturePath;
 
