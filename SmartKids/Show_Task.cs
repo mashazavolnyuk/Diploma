@@ -45,8 +45,8 @@ namespace SmartKids
         private void Show_TASK() {
 
             for (int i = 0; i < task.Count; i++)
-            {
-               // pictureBox1.Image = Image.FromFile(task[i].image);
+            {  
+               pictureBox1.Image = Image.FromFile(task[i].image.ToString());
                 label1.Text = task[i].eng_word;
                 label2.Text = task[i].rus_word;
             }

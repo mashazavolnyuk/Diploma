@@ -11,7 +11,7 @@ namespace SmartKids
        public string image;
        public string eng_word;
        public string rus_word;
-        private int sub;
+       private int sub;
 
         public Task(string ENG,string RUS,string Image) {
             this.eng_word = ENG;

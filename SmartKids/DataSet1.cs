@@ -83,6 +83,7 @@ namespace SmartKids
             int id = Get_ID_TASK(Sub_name);
             row[Tasks.sud_idColumn] = id;
             row[Tasks.imagePathColumn] = path;
+            Tasks.Rows.Add(row);
             SaveChanges();
         }
 
