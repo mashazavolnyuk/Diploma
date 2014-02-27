@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SmartKids
 {
-    public partial class Add_Task : Form
+    public partial class Add_Task : Win8Form
     {
 
         string picturePath;

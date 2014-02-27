@@ -47,6 +47,8 @@ namespace SmartKids
             string category = comboBox1.SelectedItem.ToString();
             int id_category = Program.dataset.Search_ID_CAT(category);
             Add_new_sub_cat(id_category, textBox1.Text);
+            Add_Task Task = new Add_Task(textBox1.Text);
+            Task.Show();
 
         }
 
@@ -105,6 +107,11 @@ namespace SmartKids
                     MessageBox.Show("Выбранный файл - не изображение");
                 }
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
         }
 
 

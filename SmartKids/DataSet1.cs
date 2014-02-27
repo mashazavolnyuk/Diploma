@@ -83,6 +83,7 @@ namespace SmartKids
             int id = Get_ID_TASK(Sub_name);
             row[Tasks.sud_idColumn] = id;
             row[Tasks.imagePathColumn] = path;
+            SaveChanges();
         }
 
 
@@ -113,6 +114,9 @@ namespace SmartKids
                     where (int) d[Categoty.cat_idColumn] == p
                     select d[Categoty.imagePathColumn].ToString()).ToList()[0];
         }
+
+
+
 
         #endregion
 
@@ -174,6 +178,57 @@ namespace SmartKids
             return false;
         }
 
+        #endregion
+
+        internal List<int> Load_SUBCAT(int Category) {
+
+            return (from DataRow d in Subcategort.Rows
+                    where (int)d[Subcategort.id_catColumn] == Category
+                    select (int)d[Subcategort.sub_idColumn]).ToList();
+        }
+
+        internal string Get_Resurs_SUB(int p)
+        {
+            return
+                (from DataRow d in Subcategort.Rows
+                 where (int)d[Subcategort.sub_idColumn] == p
+                 select d[Subcategort.imagePathColumn].ToString()).ToList()[0];
+            
+        }
+
+       
+
+        #region загрузки для TASK-класса 
+
+        internal List<int> LOAD_ID_TASK(int Subcat)
+        {   
+            return (from DataRow d in Tasks.Rows
+                    where (int)d[Tasks.sud_idColumn] == Subcat
+                    select (int)d[Tasks.id_taskColumn]).ToList();
+        }
+
+        internal string Get_ENG(int p)
+        {
+            return (from DataRow d in Tasks.Rows
+                    where (int)d[Tasks.id_taskColumn] == p
+                    select d[Tasks.eng_wordColumn].ToString()).ToList()[0];
+            
+        }
+
+        internal string Get_RUS(int p)
+        {
+            return (from DataRow d in Tasks.Rows
+                    where (int)d[Tasks.id_taskColumn] == p
+                    select d[Tasks.rus_wordColumn].ToString()).ToList()[0];
+        }
+
+        internal string Get_res_image(int p)
+        {
+            return (from DataRow d in Tasks.Rows
+                    where (int)d[Tasks.id_taskColumn] == p
+                    select d[Tasks.imagePathColumn].ToString()).ToList()[0];
+            
+        }
         #endregion
     }
 }

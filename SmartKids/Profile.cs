@@ -54,16 +54,11 @@ namespace SmartKids
                 pit.Click += pit_Click;
                 tableLayoutPanel1.Controls.Add(pit);
             }
+
+            tableLayoutPanel1.Focus();
         }
 
 
-
-
-        //void picBox_Click(object sender, EventArgs e)
-        //{
-        //    Show_subcat s = new Show_subcat((int)(sender as PictureBox).Tag);
-        //    s.Show();
-        //}
 
         private void pit_Click(object sender, EventArgs e)
         {

@@ -8,9 +8,16 @@ namespace SmartKids
 {
     public class Task
     {
-        private Bitmap pic;
-        private string eng_word;
-        private string rus_word;
+       public string image;
+       public string eng_word;
+       public string rus_word;
         private int sub;
+
+        public Task(string ENG,string RUS,string Image) {
+            this.eng_word = ENG;
+            this.rus_word = RUS;
+            this.image = Image;
+        }
+
     }
 }
