@@ -75,7 +75,7 @@ namespace SmartKids
         {
             for (int q = 0; q < tableLayoutPanel1.RowStyles.Count; q++)
             {
-                tableLayoutPanel1.RowStyles[q].Height = 120;
+                tableLayoutPanel1.RowStyles[q].Height = 170;
             }
         }
 
