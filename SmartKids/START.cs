@@ -41,5 +41,10 @@ namespace SmartKids
             Entry ent = new Entry();
             ent.Show();
         }
+
+        private void win8ExitButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

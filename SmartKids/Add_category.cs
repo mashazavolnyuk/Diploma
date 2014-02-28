@@ -85,5 +85,11 @@ namespace SmartKids
             Add_new_cat(textBox1.Text);
             MessageBox.Show("Категория сохранена");
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Add_Task t = new Add_Task();
+            t.Show();
+        }
     }
 }

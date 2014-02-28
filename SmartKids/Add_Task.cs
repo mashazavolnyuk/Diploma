@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,11 @@ namespace SmartKids
             InitializeComponent();
             selNmae = name;
         }
+        public Add_Task() {
+
+            InitializeComponent();
+        
+        }
 
         private void Add_Task_Load(object sender, EventArgs e)
         {
@@ -38,6 +44,25 @@ namespace SmartKids
                     Bitmap b = new Bitmap(picturePath);
 
                     pictureBox1.Image = b;
+
+                    string newname = picturePath.Split(new Char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries).Last();
+
+
+                    if (!Directory.Exists(Catalog))
+                    {
+                        Directory.CreateDirectory(Catalog);
+                        if (!File.Exists(Catalog + newname))
+                        {
+                            File.Copy(picturePath, Catalog + newname);
+                            picturePath = Catalog + newname;
+                        }
+                    }
+                    else
+                    {
+                        File.Copy(picturePath, Catalog + newname);
+                        picturePath = Catalog + newname;
+                    }
+
                 }
                 catch (Exception)
                 {
@@ -48,7 +73,7 @@ namespace SmartKids
 
         private void button2_Click(object sender, EventArgs e)
         {   string sub=comboBox1.SelectedItem.ToString();
-            Program.dataset.Add_Task(textBox1.Text,textBox2.Text,sub,Catalog+picturePath);
+            Program.dataset.Add_Task(textBox1.Text,textBox2.Text,sub,picturePath);
             MessageBox.Show("Добавлено");
         }
     }

@@ -33,6 +33,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.win8ExitButton1 = new SmartKids.Win8ExitButton();
             this.SuspendLayout();
             // 
             // button1
@@ -103,12 +104,25 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "SMART KIDS";
             // 
+            // win8ExitButton1
+            // 
+            this.win8ExitButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.win8ExitButton1.AutoSize = true;
+            this.win8ExitButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.win8ExitButton1.BackColor = System.Drawing.Color.Transparent;
+            this.win8ExitButton1.Location = new System.Drawing.Point(623, 50);
+            this.win8ExitButton1.Name = "win8ExitButton1";
+            this.win8ExitButton1.Size = new System.Drawing.Size(41, 41);
+            this.win8ExitButton1.TabIndex = 5;
+            this.win8ExitButton1.Click += new System.EventHandler(this.win8ExitButton1_Click);
+            // 
             // START
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Indigo;
-            this.ClientSize = new System.Drawing.Size(714, 415);
+            this.ClientSize = new System.Drawing.Size(715, 415);
+            this.Controls.Add(this.win8ExitButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -131,5 +145,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
+        private Win8ExitButton win8ExitButton1;
     }
 }

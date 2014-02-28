@@ -15,10 +15,14 @@ namespace SmartKids
         private int Subcat;
         List<int> task_id = new List<int>();
         List<Task> task = new List<Task>();
+        int currentId;
 
         public Show_Task(int subcat)
         {
             InitializeComponent();
+            currentId = 0;
+
+
             this.Subcat = subcat;
             Load_ID_TASK(Subcat);
 
@@ -39,17 +43,42 @@ namespace SmartKids
                 task.Add(new Task(eng,rus,im));
             }
 
-            Show_TASK();
+            pictureBox1.Image = Image.FromFile(task[currentId].image.ToString());
+            label1.Text = task[currentId].eng_word;
+            label2.Text = task[currentId].rus_word;
 
         }
-        private void Show_TASK() {
 
-            for (int i = 0; i < task.Count; i++)
-            {  
-               pictureBox1.Image = Image.FromFile(task[i].image.ToString());
-                label1.Text = task[i].eng_word;
-                label2.Text = task[i].rus_word;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            currentId++;
+
+            if(currentId >= task.Count)
+            {
+                currentId = 0;
             }
+
+            pictureBox1.Image = Image.FromFile(task[currentId].image.ToString());
+            label1.Text = task[currentId].eng_word;
+            label2.Text = task[currentId].rus_word;
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            currentId--;
+
+            if(currentId < 0)
+            {
+                currentId = task.Count-1;
+            }
+
+            pictureBox1.Image = Image.FromFile(task[currentId].image.ToString());
+            label1.Text = task[currentId].eng_word;
+            label2.Text = task[currentId].rus_word;
+
+        }
+
         }
     }
-}
+

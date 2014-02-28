@@ -9,9 +9,11 @@ namespace SmartKids
         private readonly Timer _closeTimer = new Timer();
         private readonly Timer _openTimer = new Timer();
         private Win8BackButton _win8BackButton1;
+        bool exit;
 
         private int step = 40;
         private int width, height;
+        private Win8ExitButton win8ExitButton1;
         
         public Win8Form()
         {
@@ -57,14 +59,28 @@ namespace SmartKids
             {
                 _closeTimer.Enabled = false;
                 Close();
+                if (exit)
+                    Application.Exit();
             }
         }
 
 
         private void InitializeComponent()
         {
+            this.win8ExitButton1 = new SmartKids.Win8ExitButton();
             this._win8BackButton1 = new SmartKids.Win8BackButton();
             this.SuspendLayout();
+            // 
+            // win8ExitButton1
+            // 
+            this.win8ExitButton1.AutoSize = true;
+            this.win8ExitButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.win8ExitButton1.BackColor = System.Drawing.Color.Transparent;
+            this.win8ExitButton1.Location = new System.Drawing.Point(103, 65);
+            this.win8ExitButton1.Name = "win8ExitButton1";
+            this.win8ExitButton1.Size = new System.Drawing.Size(47, 47);
+            this.win8ExitButton1.TabIndex = 1;
+            this.win8ExitButton1.Click += new System.EventHandler(this.win8ExitButton1_Click);
             // 
             // _win8BackButton1
             // 
@@ -80,7 +96,8 @@ namespace SmartKids
             // Win8Form
             // 
             this.BackColor = System.Drawing.Color.Indigo;
-            this.ClientSize = new System.Drawing.Size(500, 500);
+            this.ClientSize = new System.Drawing.Size(627, 488);
+            this.Controls.Add(this.win8ExitButton1);
             this.Controls.Add(this._win8BackButton1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.White;
@@ -118,6 +135,13 @@ namespace SmartKids
         private void _win8BackButton1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void win8ExitButton1_Click(object sender, EventArgs e)
+        {
+            Location = new Point(Screen.PrimaryScreen.Bounds.Width + 10,0);
+            exit = true;
+
         }
     }
 }

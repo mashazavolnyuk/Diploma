@@ -15,7 +15,7 @@ namespace SmartKids
     {
 
         string picturePath;
-        string Catalog = "SubcategoryRecource";
+        string Catalog = @"SubcategoryRecource\";
         private string selNmae;
         public Add_subcategory(string name)
         {

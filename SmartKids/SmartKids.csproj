@@ -90,6 +90,12 @@
     <Compile Include="Show_Task.Designer.cs">
       <DependentUpon>Show_Task.cs</DependentUpon>
     </Compile>
+    <Compile Include="TEST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TEST.Designer.cs">
+      <DependentUpon>TEST.cs</DependentUpon>
+    </Compile>
     <Compile Include="Win8Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Show_Task.resx">
       <DependentUpon>Show_Task.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TEST.resx">
+      <DependentUpon>TEST.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Win8Form.resx">
       <DependentUpon>Win8Form.cs</DependentUpon>

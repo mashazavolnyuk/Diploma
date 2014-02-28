@@ -31,7 +31,7 @@ namespace SmartKids
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            pictureBox1.Image = Properties.Resources.normal;
+            pictureBox1.Image = Properties.Resources.exitNorm;
         }
 
         public new event EventHandler Click;
