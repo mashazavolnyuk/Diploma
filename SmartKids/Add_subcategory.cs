@@ -77,7 +77,7 @@ namespace SmartKids
                     File.Copy(picturePath, Catalog + newname);
                 }
 
-                Program.dataset.SubCategory(id_cat, name_sub, Catalog + newname);
+                Program.dataset.AddSubCategory(id_cat, name_sub, Catalog + newname);
             }
         }
 
