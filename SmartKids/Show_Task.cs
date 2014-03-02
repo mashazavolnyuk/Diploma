@@ -79,6 +79,16 @@ namespace SmartKids
 
         }
 
+        private void Show_Task_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
         }
     }
 
