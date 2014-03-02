@@ -50,6 +50,27 @@ namespace UnitTestProject
 
             ShowDataset(dataset);
 
+
+            ShowDataSet2(dataset);
+
+        }
+
+        private void ShowDataSet2(DataSet1 dataset)
+        {
+            foreach (DataSet1.CategotyRow row in dataset.Categoty.Rows)
+            {
+                Console.WriteLine(row.name);
+
+            }
+            foreach (DataSet1.SubcategortRow subcategortRow in dataset.Subcategort.Rows)
+            {
+                Console.WriteLine("\t" + subcategortRow.name);
+            }
+
+            foreach (DataSet1.TasksRow tasksRow in dataset.Tasks.Rows)
+            {
+                Console.WriteLine("\t\t" + tasksRow.id_task);
+            }
         }
 
         private static void ShowDataset(DataSet1 dataset)
@@ -68,5 +89,7 @@ namespace UnitTestProject
                 }
             }
         }
+
+
     }
 }
