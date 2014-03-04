@@ -103,6 +103,7 @@
             this.button3.TabIndex = 6;
             this.button3.Text = "ТЕСТ";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -112,7 +113,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(179, 70);
             this.button4.TabIndex = 7;
-            this.button4.Text = "проигровать";
+            this.button4.Text = "проигрывать";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 

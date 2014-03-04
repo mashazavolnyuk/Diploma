@@ -13,6 +13,7 @@ namespace SmartKids
     public partial class TEST : Win8Form
     {
         List<Task> my_task = new List<Task>();
+
         public TEST(List<Task> task)
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace SmartKids
 
         private void Start_Show() { 
         
-
+       
         
         
         

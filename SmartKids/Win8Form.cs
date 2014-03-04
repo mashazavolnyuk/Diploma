@@ -60,7 +60,12 @@ namespace SmartKids
                 _closeTimer.Enabled = false;
                 Close();
                 if (exit)
-                    Application.Exit();
+                {
+                    for (int i = Application.OpenForms.Count-1; i >= 0; i--)
+                    {
+                        Application.OpenForms[i].Close();
+                    }
+                }
             }
         }
 

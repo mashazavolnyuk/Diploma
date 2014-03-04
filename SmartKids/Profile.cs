@@ -41,12 +41,7 @@ namespace SmartKids
 
             for (int i = 0; i < cat.Count; i++)
             {
-                //PictureBox picBox = new PictureBox();
-                //picBox.Size = new Size(120,120);
-                //picBox.SizeMode = PictureBoxSizeMode.Zoom;
-                //picBox.Image = Image.FromFile(Program.dataset.Get_Resurs(cat[i]));
-                //    picBox.Tag = cat[i];
-                //picBox.Click += picBox_Click;
+               
                 ProfileItemControl pit = new ProfileItemControl();
                 pit.Image = Image.FromFile(Program.dataset.Get_Resurs(cat[i]));
                 pit.Text = cat[i].ToString();

@@ -14,6 +14,7 @@ namespace SmartKids
     {
         private int Subcat;
         List<int> task_id = new List<int>();
+
         List<Task> task = new List<Task>();
         int currentId;
 
@@ -89,6 +90,11 @@ namespace SmartKids
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            TEST My_Task = new TEST(task);
+            My_Task.Show();
+        }
         }
     }
 
