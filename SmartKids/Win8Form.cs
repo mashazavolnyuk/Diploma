@@ -61,9 +61,9 @@ namespace SmartKids
                 Close();
                 if (exit)
                 {
-                    for (int i = Application.OpenForms.Count-1; i >= 0; i--)
+                    for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
                     {
-                        Application.OpenForms[i].Close();
+                            Application.OpenForms[i].Close();
                     }
                 }
             }
@@ -101,7 +101,7 @@ namespace SmartKids
             // Win8Form
             // 
             this.BackColor = System.Drawing.Color.Indigo;
-            this.ClientSize = new System.Drawing.Size(627, 488);
+            this.ClientSize = new System.Drawing.Size(491, 373);
             this.Controls.Add(this.win8ExitButton1);
             this.Controls.Add(this._win8BackButton1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -144,6 +144,7 @@ namespace SmartKids
 
         private void win8ExitButton1_Click(object sender, EventArgs e)
         {
+            _closeTimer.Start();
             Location = new Point(Screen.PrimaryScreen.Bounds.Width + 10,0);
             exit = true;
 
