@@ -96,6 +96,17 @@
       <DependentUpon>Entry.cs</DependentUpon>
     </Compile>
     <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Play_Game.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Play_Game.Designer.cs">
+      <DependentUpon>Play_Game.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Show_Task.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +191,9 @@
     <EmbeddedResource Include="Entry.resx">
       <DependentUpon>Entry.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Play_Game.resx">
+      <DependentUpon>Play_Game.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Show_Task.resx">
       <DependentUpon>Show_Task.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,14 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Win8ExitButton.resx">
       <DependentUpon>Win8ExitButton.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,7 +274,16 @@
     <None Include="Resources\exitPress.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\girl.png" />
+    <None Include="Resources\boy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\girl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Playeralt.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
