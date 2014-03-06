@@ -114,8 +114,11 @@ namespace SmartKids
             
         }
 
-
-
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            All_subcategory sub = new All_subcategory();
+            sub.Show();
+        }
 
 
     }

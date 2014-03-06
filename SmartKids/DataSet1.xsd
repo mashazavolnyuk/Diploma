@@ -12,7 +12,7 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_RowClassName="UsersRow" msprop:Generator_UserTableName="Users" msprop:Generator_RowEvArgName="UsersRowChangeEvent">
+        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_UserTableName="Users" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_RowEvArgName="UsersRowChangeEvent" msprop:Generator_RowClassName="UsersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="user_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnuser_id" msprop:Generator_ColumnPropNameInRow="user_id" msprop:Generator_ColumnPropNameInTable="user_idColumn" msprop:Generator_UserColumnName="user_id" type="xs:int" minOccurs="0" />
@@ -20,10 +20,11 @@
               <xs:element name="points" msprop:Generator_ColumnVarNameInTable="columnpoints" msprop:Generator_ColumnPropNameInRow="points" msprop:Generator_ColumnPropNameInTable="pointsColumn" msprop:Generator_UserColumnName="points" type="xs:int" minOccurs="0" />
               <xs:element name="pass" msprop:Generator_ColumnVarNameInTable="columnpass" msprop:Generator_ColumnPropNameInRow="pass" msprop:Generator_ColumnPropNameInTable="passColumn" msprop:Generator_UserColumnName="pass" type="xs:string" minOccurs="0" />
               <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" type="xs:string" minOccurs="0" />
+              <xs:element name="coin" msprop:Generator_ColumnVarNameInTable="columncoin" msprop:Generator_ColumnPropNameInRow="coin" msprop:Generator_ColumnPropNameInTable="coinColumn" msprop:Generator_UserColumnName="coin" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Categoty" msprop:Generator_TableClassName="CategotyDataTable" msprop:Generator_TableVarName="tableCategoty" msprop:Generator_TablePropName="Categoty" msprop:Generator_RowDeletingName="CategotyRowDeleting" msprop:Generator_RowChangingName="CategotyRowChanging" msprop:Generator_RowEvHandlerName="CategotyRowChangeEventHandler" msprop:Generator_RowDeletedName="CategotyRowDeleted" msprop:Generator_UserTableName="Categoty" msprop:Generator_RowChangedName="CategotyRowChanged" msprop:Generator_RowEvArgName="CategotyRowChangeEvent" msprop:Generator_RowClassName="CategotyRow">
+        <xs:element name="Categoty" msprop:Generator_TableClassName="CategotyDataTable" msprop:Generator_TableVarName="tableCategoty" msprop:Generator_RowChangedName="CategotyRowChanged" msprop:Generator_TablePropName="Categoty" msprop:Generator_RowDeletingName="CategotyRowDeleting" msprop:Generator_RowChangingName="CategotyRowChanging" msprop:Generator_RowEvHandlerName="CategotyRowChangeEventHandler" msprop:Generator_RowDeletedName="CategotyRowDeleted" msprop:Generator_RowClassName="CategotyRow" msprop:Generator_UserTableName="Categoty" msprop:Generator_RowEvArgName="CategotyRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cat_id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columncat_id" msprop:Generator_ColumnPropNameInRow="cat_id" msprop:Generator_ColumnPropNameInTable="cat_idColumn" msprop:Generator_UserColumnName="cat_id" type="xs:int" />
@@ -32,7 +33,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Subcategort" msprop:Generator_TableClassName="SubcategortDataTable" msprop:Generator_TableVarName="tableSubcategort" msprop:Generator_TablePropName="Subcategort" msprop:Generator_RowDeletingName="SubcategortRowDeleting" msprop:Generator_RowChangingName="SubcategortRowChanging" msprop:Generator_RowEvHandlerName="SubcategortRowChangeEventHandler" msprop:Generator_RowDeletedName="SubcategortRowDeleted" msprop:Generator_UserTableName="Subcategort" msprop:Generator_RowChangedName="SubcategortRowChanged" msprop:Generator_RowEvArgName="SubcategortRowChangeEvent" msprop:Generator_RowClassName="SubcategortRow">
+        <xs:element name="Subcategort" msprop:Generator_TableClassName="SubcategortDataTable" msprop:Generator_TableVarName="tableSubcategort" msprop:Generator_RowChangedName="SubcategortRowChanged" msprop:Generator_TablePropName="Subcategort" msprop:Generator_RowDeletingName="SubcategortRowDeleting" msprop:Generator_RowChangingName="SubcategortRowChanging" msprop:Generator_RowEvHandlerName="SubcategortRowChangeEventHandler" msprop:Generator_RowDeletedName="SubcategortRowDeleted" msprop:Generator_RowClassName="SubcategortRow" msprop:Generator_UserTableName="Subcategort" msprop:Generator_RowEvArgName="SubcategortRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="sub_id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnsub_id" msprop:Generator_ColumnPropNameInRow="sub_id" msprop:Generator_ColumnPropNameInTable="sub_idColumn" msprop:Generator_UserColumnName="sub_id" type="xs:int" minOccurs="0" />
@@ -42,7 +43,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Tasks" msprop:Generator_TableClassName="TasksDataTable" msprop:Generator_TableVarName="tableTasks" msprop:Generator_TablePropName="Tasks" msprop:Generator_RowDeletingName="TasksRowDeleting" msprop:Generator_RowChangingName="TasksRowChanging" msprop:Generator_RowEvHandlerName="TasksRowChangeEventHandler" msprop:Generator_RowDeletedName="TasksRowDeleted" msprop:Generator_UserTableName="Tasks" msprop:Generator_RowChangedName="TasksRowChanged" msprop:Generator_RowEvArgName="TasksRowChangeEvent" msprop:Generator_RowClassName="TasksRow">
+        <xs:element name="Tasks" msprop:Generator_TableClassName="TasksDataTable" msprop:Generator_TableVarName="tableTasks" msprop:Generator_RowChangedName="TasksRowChanged" msprop:Generator_TablePropName="Tasks" msprop:Generator_RowDeletingName="TasksRowDeleting" msprop:Generator_RowChangingName="TasksRowChanging" msprop:Generator_RowEvHandlerName="TasksRowChangeEventHandler" msprop:Generator_RowDeletedName="TasksRowDeleted" msprop:Generator_RowClassName="TasksRow" msprop:Generator_UserTableName="Tasks" msprop:Generator_RowEvArgName="TasksRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="imagePath" msprop:Generator_ColumnVarNameInTable="columnimagePath" msprop:Generator_ColumnPropNameInRow="imagePath" msprop:Generator_ColumnPropNameInTable="imagePathColumn" msprop:Generator_UserColumnName="imagePath" type="xs:string" minOccurs="0" />
@@ -71,11 +72,11 @@
       <xs:selector xpath=".//mstns:Tasks" />
       <xs:field xpath="mstns:id_task" />
     </xs:unique>
-    <xs:keyref name="FK_Subcategort_Tasks" refer="Subcategort_Constraint1" msprop:rel_Generator_UserChildTable="Tasks" msprop:rel_Generator_ChildPropName="GetTasksRows" msprop:rel_Generator_UserRelationName="FK_Subcategort_Tasks" msprop:rel_Generator_ParentPropName="SubcategortRow" msprop:rel_Generator_RelationVarName="relationFK_Subcategort_Tasks" msprop:rel_Generator_UserParentTable="Subcategort">
+    <xs:keyref name="FK_Subcategort_Tasks" refer="Subcategort_Constraint1" msprop:rel_Generator_UserChildTable="Tasks" msprop:rel_Generator_ChildPropName="GetTasksRows" msprop:rel_Generator_UserRelationName="FK_Subcategort_Tasks" msprop:rel_Generator_RelationVarName="relationFK_Subcategort_Tasks" msprop:rel_Generator_UserParentTable="Subcategort" msprop:rel_Generator_ParentPropName="SubcategortRow">
       <xs:selector xpath=".//mstns:Tasks" />
       <xs:field xpath="mstns:sud_id" />
     </xs:keyref>
-    <xs:keyref name="FK_Categoty_Subcategort" refer="CategotyKey1" msprop:rel_Generator_UserChildTable="Subcategort" msprop:rel_Generator_ChildPropName="GetSubcategortRows" msprop:rel_Generator_UserRelationName="FK_Categoty_Subcategort" msprop:rel_Generator_ParentPropName="CategotyRow" msprop:rel_Generator_RelationVarName="relationFK_Categoty_Subcategort" msprop:rel_Generator_UserParentTable="Categoty">
+    <xs:keyref name="FK_Categoty_Subcategort" refer="CategotyKey1" msprop:rel_Generator_UserChildTable="Subcategort" msprop:rel_Generator_ChildPropName="GetSubcategortRows" msprop:rel_Generator_UserRelationName="FK_Categoty_Subcategort" msprop:rel_Generator_RelationVarName="relationFK_Categoty_Subcategort" msprop:rel_Generator_UserParentTable="Categoty" msprop:rel_Generator_ParentPropName="CategotyRow">
       <xs:selector xpath=".//mstns:Subcategort" />
       <xs:field xpath="mstns:id_cat" />
     </xs:keyref>

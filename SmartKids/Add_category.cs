@@ -91,5 +91,11 @@ namespace SmartKids
             Add_Task t = new Add_Task();
             t.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            All_category all_cat = new All_category();
+            all_cat.Show();
+        }
     }
 }

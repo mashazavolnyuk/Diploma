@@ -56,6 +56,30 @@ namespace SmartKids
             SaveChanges();
         }
 
+
+        //ЗАГРУЗКА ВСЕХ КАТЕГОРИЙ
+
+        public List<string> Load_ALLCATEG() { 
+        
+        List<string> all=(from DataRow AC in Categoty.Rows
+                          select AC[Categoty.nameColumn].ToString()).ToList();
+        return all;
+  
+        }
+
+        //ЗАГРУЗКА ВСЕХ ПОДКАТЕГОРИЙ
+        public List<string> Load_SUBCAT() {
+
+        List<string> all = (from DataRow AC in Subcategort.Rows
+                            select AC[Subcategort.nameColumn].ToString()).ToList();
+         return all;
+        }
+
+
+
+
+
+
         //получение id оталкиваясь от name 
         public int Search_ID_CAT(string name_cat)
         {
@@ -261,6 +285,25 @@ namespace SmartKids
             Categoty.FindBycat_id(id).Delete();
             SaveChanges();
         }
-        
+
+
+        internal int GetCategoryIdByName(string name)
+        {
+            List<CategotyRow> r = (from CategotyRow item in Categoty.Rows where item.name == name select item).ToList();
+
+            if (r.Count != 0)
+                return r[0].cat_id;
+
+            return -1;
+        }
+        //УДАЛИТЬ ВСЕ КАТЕГОРИИ
+        internal void DeleteAllCategory()
+        {
+            for (int i = Categoty.Rows.Count-1; i >= 0; i--)
+            {
+                Categoty.Rows[i].Delete();
+            }
+            SaveChanges();
+        }
     }
 }

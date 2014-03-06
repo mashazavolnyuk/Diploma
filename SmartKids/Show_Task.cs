@@ -13,17 +13,19 @@ namespace SmartKids
     public partial class Show_Task : Win8Form
     {
         private int Subcat;
-        List<int> task_id = new List<int>();
 
+        List<int> task_id = new List<int>();
         List<Task> task = new List<Task>();
         int currentId;
 
+     
+        
+
         public Show_Task(int subcat)
         {
+
             InitializeComponent();
             currentId = 0;
-
-
             this.Subcat = subcat;
             Load_ID_TASK(Subcat);
 
@@ -33,6 +35,7 @@ namespace SmartKids
             task_id = Program.dataset.LOAD_ID_TASK(Subcat);
             Load_TASK(task_id);
         }
+
 
         private void Load_TASK(List<int> temp_id) {
 
@@ -80,6 +83,23 @@ namespace SmartKids
 
         }
 
+
+
+        private void Play_Task()
+        {
+            currentId++;
+
+            if (currentId >= task.Count)
+            {
+                currentId = 0;
+            }
+
+            pictureBox1.Image = Image.FromFile(task[currentId].image.ToString());
+            label1.Text = task[currentId].eng_word;
+            label2.Text = task[currentId].rus_word;
+
+        }
+
         private void Show_Task_Load(object sender, EventArgs e)
         {
 
@@ -87,13 +107,19 @@ namespace SmartKids
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            timer1.Enabled = true;
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             TEST My_Task = new TEST(task);
             My_Task.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Play_Task();
         }
         }
     }

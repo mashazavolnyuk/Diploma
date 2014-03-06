@@ -69,5 +69,15 @@ namespace SmartKids
             }
         }
 
+        private void label1_MouseEnter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label1_MouseLeave(object sender, EventArgs e)
+        {
+            label1.BackColor = Color.Indigo;
+        }
+
     }
 }

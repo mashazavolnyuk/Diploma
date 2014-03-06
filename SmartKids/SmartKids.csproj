@@ -68,6 +68,18 @@
     <Compile Include="add_user.Designer.cs">
       <DependentUpon>add_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="All_category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="All_category.Designer.cs">
+      <DependentUpon>All_category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="All_subcategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="All_subcategory.Designer.cs">
+      <DependentUpon>All_subcategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -158,6 +170,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="add_user.resx">
       <DependentUpon>add_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="All_category.resx">
+      <DependentUpon>All_category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="All_subcategory.resx">
+      <DependentUpon>All_subcategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Entry.resx">
       <DependentUpon>Entry.cs</DependentUpon>
