@@ -17,6 +17,7 @@ namespace SmartKids
         string picturePath;
         string Catalog = @"SubcategoryRecource\";
         private string selNmae;
+
         public Add_subcategory(string name)
         {
             InitializeComponent();
@@ -52,7 +53,6 @@ namespace SmartKids
 
         }
 
-
         //Добавление новой подкатегории
         private void Add_new_sub_cat(int id_cat, string name_sub)
         {
@@ -80,10 +80,6 @@ namespace SmartKids
                 Program.dataset.AddSubCategory(id_cat, name_sub, Catalog + newname);
             }
         }
-
-
-
-
 
 
         private void pictureBox1_Click(object sender, EventArgs e)

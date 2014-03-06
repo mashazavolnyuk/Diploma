@@ -18,22 +18,23 @@ namespace SmartKids
         List<int> cat = new List<int>();//id категорий
 
 
-
         public Profile(string Name_user):base()
         {
             InitializeComponent();
-            Show_profile(Name_user);
+            
             cat = Program.dataset.GetCat_ID();
+            Load_User(Name_user);
 
 
         }
 
-        private void Show_profile(string Name_user)
-        {
 
-            label1.Text = Name_user;
+        private void Load_User(string Name) {
+
+         label1.Text = Name;
+         pictureBox1.Image = Image.FromFile(Program.dataset.GetPhopo_USER(Name));//на админе работает
+
         }
-
 
         private void Profile_Load(object sender, EventArgs e)
         {

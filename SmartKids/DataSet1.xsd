@@ -20,7 +20,8 @@
               <xs:element name="points" msprop:Generator_ColumnVarNameInTable="columnpoints" msprop:Generator_ColumnPropNameInRow="points" msprop:Generator_ColumnPropNameInTable="pointsColumn" msprop:Generator_UserColumnName="points" type="xs:int" minOccurs="0" />
               <xs:element name="pass" msprop:Generator_ColumnVarNameInTable="columnpass" msprop:Generator_ColumnPropNameInRow="pass" msprop:Generator_ColumnPropNameInTable="passColumn" msprop:Generator_UserColumnName="pass" type="xs:string" minOccurs="0" />
               <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" type="xs:string" minOccurs="0" />
-              <xs:element name="coin" msprop:Generator_ColumnVarNameInTable="columncoin" msprop:Generator_ColumnPropNameInRow="coin" msprop:Generator_ColumnPropNameInTable="coinColumn" msprop:Generator_UserColumnName="coin" type="xs:string" minOccurs="0" />
+              <xs:element name="coin" msprop:Generator_ColumnVarNameInTable="columncoin" msprop:Generator_ColumnPropNameInRow="coin" msprop:Generator_ColumnPropNameInTable="coinColumn" msprop:Generator_UserColumnName="coin" type="xs:int" minOccurs="0" />
+              <xs:element name="Photo" msprop:Generator_ColumnVarNameInTable="columnPhoto" msprop:Generator_ColumnPropNameInRow="Photo" msprop:Generator_ColumnPropNameInTable="PhotoColumn" msprop:Generator_UserColumnName="Photo" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

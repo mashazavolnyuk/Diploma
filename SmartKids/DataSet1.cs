@@ -158,7 +158,7 @@ namespace SmartKids
 
         #region Работа с юзерами
 
-        public bool New_User(string Name, string Pass, Gender g)
+        public bool New_User(string Name, string Pass, Gender g, string Photo)
         {
             List<string> rows = (from DataRow U in Users.Rows
                                  where U[Users.user_nameColumn].ToString() == Name
@@ -169,6 +169,9 @@ namespace SmartKids
             newUser[Users.user_nameColumn] = Name;
             newUser[Users.passColumn] = Pass;
             newUser[Users.GenderColumn] = g;
+            newUser[Users.PhotoColumn] = Photo;
+
+
             Users.Rows.Add(newUser);
             SaveChanges();
             return true;
@@ -304,6 +307,29 @@ namespace SmartKids
                 Categoty.Rows[i].Delete();
             }
             SaveChanges();
+        }
+
+
+
+        internal string GetPhopo_USER(string Name)
+        {
+            int id = Get_Id_USER(Name);
+            return (from DataRow IT in Users.Rows
+                     where (int)IT[Users.user_idColumn]==id
+                     select IT[Users.PhotoColumn].ToString()).ToList()[0];
+                        
+                        
+                        
+           
+                      
+        }
+        private int Get_Id_USER(string Name){
+
+        return (from DataRow IT in Users.Rows
+                    where (string)IT[Users.user_nameColumn] == Name
+                    select (int)IT[Users.user_idColumn]).ToList()[0];
+        
+        
         }
     }
 }

@@ -425,6 +425,8 @@ namespace SmartKids {
             
             private global::System.Data.DataColumn columncoin;
             
+            private global::System.Data.DataColumn columnPhoto;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public UsersDataTable() {
@@ -508,6 +510,14 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PhotoColumn {
+                get {
+                    return this.columnPhoto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -543,7 +553,7 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UsersRow AddUsersRow(string user_name, int points, string pass, string Gender, string coin) {
+            public UsersRow AddUsersRow(string user_name, int points, string pass, string Gender, int coin, string Photo) {
                 UsersRow rowUsersRow = ((UsersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -551,7 +561,8 @@ namespace SmartKids {
                         points,
                         pass,
                         Gender,
-                        coin};
+                        coin,
+                        Photo};
                 rowUsersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUsersRow);
                 return rowUsersRow;
@@ -580,6 +591,7 @@ namespace SmartKids {
                 this.columnpass = base.Columns["pass"];
                 this.columnGender = base.Columns["Gender"];
                 this.columncoin = base.Columns["coin"];
+                this.columnPhoto = base.Columns["Photo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -595,8 +607,10 @@ namespace SmartKids {
                 base.Columns.Add(this.columnpass);
                 this.columnGender = new global::System.Data.DataColumn("Gender", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGender);
-                this.columncoin = new global::System.Data.DataColumn("coin", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columncoin = new global::System.Data.DataColumn("coin", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncoin);
+                this.columnPhoto = new global::System.Data.DataColumn("Photo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPhoto);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnuser_id}, false));
                 this.columnuser_id.AutoIncrement = true;
@@ -1717,10 +1731,10 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string coin {
+            public int coin {
                 get {
                     try {
-                        return ((string)(this[this.tableUsers.coinColumn]));
+                        return ((int)(this[this.tableUsers.coinColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'coin\' в таблице \'Users\' равно DBNull.", e);
@@ -1728,6 +1742,22 @@ namespace SmartKids {
                 }
                 set {
                     this[this.tableUsers.coinColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Photo {
+                get {
+                    try {
+                        return ((string)(this[this.tableUsers.PhotoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Photo\' в таблице \'Users\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUsers.PhotoColumn] = value;
                 }
             }
             
@@ -1801,6 +1831,18 @@ namespace SmartKids {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetcoinNull() {
                 this[this.tableUsers.coinColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPhotoNull() {
+                return this.IsNull(this.tableUsers.PhotoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPhotoNull() {
+                this[this.tableUsers.PhotoColumn] = global::System.Convert.DBNull;
             }
         }
         
