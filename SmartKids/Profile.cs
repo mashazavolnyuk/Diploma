@@ -16,28 +16,42 @@ namespace SmartKids
         private string name_user;
         //Загрузка сатегорий в лист
         List<int> cat = new List<int>();//id категорий
+        List<Сategory> LoadCategory = new List<Сategory>();//загруженные категории
 
 
         public Profile(string Name_user):base()
         {
             InitializeComponent();
-            
             cat = Program.dataset.GetCat_ID();
+
+            //загружаем категории,количество известно по cat
+            for (int i = 0; i < cat.Count(); i++)
+            {
+
+              string name = Program.dataset.Get_name_category(cat[i]);
+              string picter=Program.dataset.Get_Resurs(cat[i]);
+
+              LoadCategory.Add(new Сategory(name,picter,cat[i]));
+            }
             Load_User(Name_user);
+            name_user = Name_user;
 
 
         }
 
 
         private void Load_User(string Name) {
-
          label1.Text = Name;
-         pictureBox1.Image = Image.FromFile(Program.dataset.GetPhopo_USER(Name));//на админе работает
+         pictureBox1.Image = Image.FromFile(Program.dataset.GetPhopo_USER(Name));
 
         }
 
+
+
         private void Profile_Load(object sender, EventArgs e)
-        {
+        {   
+             
+
             //Отображаем имеющиеся категории
 
             for (int i = 0; i < cat.Count; i++)
@@ -78,6 +92,12 @@ namespace SmartKids
         private void label1_MouseLeave(object sender, EventArgs e)
         {
             label1.BackColor = Color.Indigo;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Play_Game newgame = new Play_Game(name_user);
+            newgame.Show();
         }
 
     }
