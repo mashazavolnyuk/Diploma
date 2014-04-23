@@ -30,9 +30,9 @@ namespace SmartKids
 
               string name = Program.dataset.Get_name_category(cat[i]);
               string picter=Program.dataset.Get_Resurs(cat[i]);
-
               LoadCategory.Add(new Сategory(name,picter,cat[i]));
             }
+
             Load_User(Name_user);
             name_user = Name_user;
 
@@ -58,8 +58,8 @@ namespace SmartKids
             {
                
                 ProfileItemControl pit = new ProfileItemControl();
-                pit.Image = Image.FromFile(Program.dataset.Get_Resurs(cat[i]));
-                pit.Text = cat[i].ToString();
+                pit.Image =Image.FromFile( LoadCategory[i].Picter);
+                pit.Text = LoadCategory[i].name;
                 pit.Tag = cat[i].ToString();
                 pit.Click += pit_Click;
                 tableLayoutPanel1.Controls.Add(pit);
