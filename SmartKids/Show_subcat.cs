@@ -47,7 +47,7 @@ namespace SmartKids
             for (int i = 0; i < subcategory.Count; i++)
             {
                 ProfileItemControl pit = new ProfileItemControl();
-                pit.Image = Image.FromFile(Program.dataset.Get_Resurs_SUB(subcategory[i]));
+                pit.Image = Image.FromFile(Program.dataset.GetImageBySubCategoryId(subcategory[i]));
                 pit.Text = subcategory[i].ToString();
                 pit.Tag = subcategory[i].ToString();
                 pit.Click += pit_Click;
