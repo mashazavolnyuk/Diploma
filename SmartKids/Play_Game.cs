@@ -19,6 +19,8 @@ namespace SmartKids
     {
         List<PictureBox> pictures = new List<PictureBox>();
         private Timer timer;
+        Stopwatch gametime = new Stopwatch();
+        Timer gametimer = new Timer();
 
         int coin = 0;//количество очков
         List<Task> task = new List<Task>();//все задания
@@ -33,7 +35,6 @@ namespace SmartKids
         {
             InitializeComponent();
             timer = new Timer() { Interval = 5000 };
-
             task = Program.dataset.Load_Task();
 
             if (task.Count < 4)
@@ -48,6 +49,11 @@ namespace SmartKids
             pictures.Add(pictureBox2);
             pictures.Add(pictureBox3);
             pictures.Add(pictureBox4);
+        }
+
+        void gametimer_Tick(object sender, EventArgs e)
+        {
+            label2.Text = gametime.Elapsed.ToString();
         }
 
         Stopwatch stopwatch = new Stopwatch();
@@ -86,13 +92,15 @@ namespace SmartKids
             if (usedWords.Count == task.Count)
             {
                 timer.Stop();
+                gametime.Stop();
+                gametimer.Stop();
                 Program.CurrentUser.points += coin;
                 if (Program.CurrentUser.points < 0)
                     Program.CurrentUser.points = 0;
                 Program.dataset.SaveChanges();
 
                 MessageBox.Show("Игра окончена. Вы набрали " + coin + " очков. Всего у вас " +
-                                Program.CurrentUser.points + " очков");
+                                Program.CurrentUser.points + " очков. Потрачено времени: " + gametime.Elapsed.Hours + ":" + gametime.Elapsed.Minutes + ":" + gametime.Elapsed.Seconds);
                 this.Close();
 
             }
@@ -139,6 +147,14 @@ namespace SmartKids
             usedWords = new List<int>();
             timer.Start();
             timer_Tick(timer, new EventArgs());
+
+            gametimer.Interval = 100;
+            gametimer.Tick += gametimer_Tick;
+            gametimer.Start();
+
+            gametime.Start();
+
+
 
         }
 
