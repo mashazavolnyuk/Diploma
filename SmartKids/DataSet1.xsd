@@ -15,7 +15,7 @@
         <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_RowClassName="UsersRow" msprop:Generator_UserTableName="Users" msprop:Generator_RowEvArgName="UsersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="user_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnuser_id" msprop:Generator_ColumnPropNameInRow="user_id" msprop:Generator_ColumnPropNameInTable="user_idColumn" msprop:Generator_UserColumnName="user_id" type="xs:int" minOccurs="0" />
+              <xs:element name="user_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnuser_id" msprop:Generator_ColumnPropNameInRow="user_id" msprop:Generator_ColumnPropNameInTable="user_idColumn" msprop:Generator_UserColumnName="user_id" type="xs:int" />
               <xs:element name="user_name" msprop:Generator_ColumnVarNameInTable="columnuser_name" msprop:Generator_ColumnPropNameInRow="user_name" msprop:Generator_ColumnPropNameInTable="user_nameColumn" msprop:Generator_UserColumnName="user_name" type="xs:string" minOccurs="0" />
               <xs:element name="points" msprop:Generator_ColumnVarNameInTable="columnpoints" msprop:Generator_ColumnPropNameInRow="points" msprop:Generator_ColumnPropNameInTable="pointsColumn" msprop:Generator_UserColumnName="points" type="xs:int" default="0" minOccurs="0" />
               <xs:element name="pass" msprop:Generator_ColumnVarNameInTable="columnpass" msprop:Generator_ColumnPropNameInRow="pass" msprop:Generator_ColumnPropNameInTable="passColumn" msprop:Generator_UserColumnName="pass" type="xs:string" minOccurs="0" />
@@ -36,7 +36,7 @@
         <xs:element name="Subcategort" msprop:Generator_TableClassName="SubcategortDataTable" msprop:Generator_TableVarName="tableSubcategort" msprop:Generator_TablePropName="Subcategort" msprop:Generator_RowDeletingName="SubcategortRowDeleting" msprop:Generator_RowChangingName="SubcategortRowChanging" msprop:Generator_RowEvHandlerName="SubcategortRowChangeEventHandler" msprop:Generator_RowDeletedName="SubcategortRowDeleted" msprop:Generator_UserTableName="Subcategort" msprop:Generator_RowChangedName="SubcategortRowChanged" msprop:Generator_RowEvArgName="SubcategortRowChangeEvent" msprop:Generator_RowClassName="SubcategortRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="sub_id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnsub_id" msprop:Generator_ColumnPropNameInRow="sub_id" msprop:Generator_ColumnPropNameInTable="sub_idColumn" msprop:Generator_UserColumnName="sub_id" type="xs:int" minOccurs="0" />
+              <xs:element name="sub_id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnsub_id" msprop:Generator_ColumnPropNameInRow="sub_id" msprop:Generator_ColumnPropNameInTable="sub_idColumn" msprop:Generator_UserColumnName="sub_id" type="xs:int" />
               <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" />
               <xs:element name="id_cat" msprop:Generator_ColumnVarNameInTable="columnid_cat" msprop:Generator_ColumnPropNameInRow="id_cat" msprop:Generator_ColumnPropNameInTable="id_catColumn" msprop:Generator_UserColumnName="id_cat" type="xs:int" minOccurs="0" />
               <xs:element name="imagePath" msprop:Generator_ColumnVarNameInTable="columnimagePath" msprop:Generator_ColumnPropNameInRow="imagePath" msprop:Generator_ColumnPropNameInTable="imagePathColumn" msprop:Generator_UserColumnName="imagePath" type="xs:string" minOccurs="0" />
@@ -48,7 +48,7 @@
             <xs:sequence>
               <xs:element name="imagePath" msprop:Generator_ColumnVarNameInTable="columnimagePath" msprop:Generator_ColumnPropNameInRow="imagePath" msprop:Generator_ColumnPropNameInTable="imagePathColumn" msprop:Generator_UserColumnName="imagePath" type="xs:string" minOccurs="0" />
               <xs:element name="eng_word" msprop:Generator_ColumnVarNameInTable="columneng_word" msprop:Generator_ColumnPropNameInRow="eng_word" msprop:Generator_ColumnPropNameInTable="eng_wordColumn" msprop:Generator_UserColumnName="eng_word" type="xs:string" minOccurs="0" />
-              <xs:element name="id_task" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid_task" msprop:Generator_ColumnPropNameInRow="id_task" msprop:Generator_ColumnPropNameInTable="id_taskColumn" msprop:Generator_UserColumnName="id_task" type="xs:int" minOccurs="0" />
+              <xs:element name="id_task" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid_task" msprop:Generator_ColumnPropNameInRow="id_task" msprop:Generator_ColumnPropNameInTable="id_taskColumn" msprop:Generator_UserColumnName="id_task" type="xs:int" />
               <xs:element name="rus_word" msprop:Generator_ColumnVarNameInTable="columnrus_word" msprop:Generator_ColumnPropNameInRow="rus_word" msprop:Generator_ColumnPropNameInTable="rus_wordColumn" msprop:Generator_UserColumnName="rus_word" type="xs:string" minOccurs="0" />
               <xs:element name="sud_id" msprop:Generator_ColumnVarNameInTable="columnsud_id" msprop:Generator_ColumnPropNameInRow="sud_id" msprop:Generator_ColumnPropNameInTable="sud_idColumn" msprop:Generator_UserColumnName="sud_id" type="xs:int" minOccurs="0" />
             </xs:sequence>
@@ -56,7 +56,7 @@
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1">
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Users" />
       <xs:field xpath="mstns:user_id" />
     </xs:unique>
@@ -64,11 +64,11 @@
       <xs:selector xpath=".//mstns:Categoty" />
       <xs:field xpath="mstns:cat_id" />
     </xs:unique>
-    <xs:unique name="Subcategort_Constraint1" msdata:ConstraintName="Constraint1">
+    <xs:unique name="Subcategort_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Subcategort" />
       <xs:field xpath="mstns:sub_id" />
     </xs:unique>
-    <xs:unique name="Tasks_Constraint1" msdata:ConstraintName="Constraint1">
+    <xs:unique name="Tasks_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Tasks" />
       <xs:field xpath="mstns:id_task" />
     </xs:unique>
