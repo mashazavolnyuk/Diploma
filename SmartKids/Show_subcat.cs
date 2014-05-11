@@ -41,7 +41,7 @@ namespace SmartKids
 
         private void Show_subcategory() {
 
-         subcategory=Program.dataset.Load_SUBCAT(Cat);//id подкатегорий
+         subcategory=Program.dataset.GetSubCategoriesByCategoryId(Cat);//id подкатегорий
             label1.Text = Program.dataset.Categoty.FindBycat_id(Cat).name;
 
             for (int i = 0; i < subcategory.Count; i++)

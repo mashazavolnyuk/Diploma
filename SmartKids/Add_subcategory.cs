@@ -27,7 +27,7 @@ namespace SmartKids
 
         private void Add_subcategory_Load(object sender, EventArgs e)
         {
-            comboBox1.DataSource = Program.dataset.GetCat_name();
+            comboBox1.DataSource = Program.dataset.GetAllCategoriesNames();
             comboBox1.SelectedItem = selNmae;
 
         }
@@ -46,7 +46,7 @@ namespace SmartKids
         private void button1_Click(object sender, EventArgs e)
         {
             string category = comboBox1.SelectedItem.ToString();
-            int id_category = Program.dataset.Search_ID_CAT(category);
+            int id_category = Program.dataset.GetCategoryIdByName(category);
             Add_new_sub_cat(id_category, textBox1.Text);
             Add_Task Task = new Add_Task(textBox1.Text);
             Task.Show();

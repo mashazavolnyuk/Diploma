@@ -18,7 +18,7 @@ namespace SmartKids
         public All_subcategory()
         {
             InitializeComponent();
-            All_scateg = Program.dataset.Load_SUBCAT();
+            All_scateg = Program.dataset.LoadSubCategories();
             Show_subcat();
         }
 

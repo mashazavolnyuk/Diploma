@@ -22,14 +22,14 @@ namespace SmartKids
         public Profile(string Name_user):base()
         {
             InitializeComponent();
-            cat = Program.dataset.GetCat_ID();
+            cat = Program.dataset.GetAllCategoriesIds();
 
             //загружаем категории,количество известно по cat
             for (int i = 0; i < cat.Count(); i++)
             {
 
-              string name = Program.dataset.Get_name_category(cat[i]);
-              string picter=Program.dataset.Get_Resurs(cat[i]);
+              string name = Program.dataset.GetCategoryNameById(cat[i]);
+              string picter=Program.dataset.GetImagePathByCategoryId(cat[i]);
               LoadCategory.Add(new Сategory(name,picter,cat[i]));
             }
 

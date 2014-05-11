@@ -16,7 +16,7 @@ namespace SmartKids
         public All_category()
         {
             InitializeComponent();
-            All_categ = Program.dataset.Load_ALLCATEG();
+            All_categ = Program.dataset.LoadAllCategories();
             Show_categ(All_categ);
 
         }

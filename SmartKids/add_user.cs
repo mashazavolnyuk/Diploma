@@ -58,11 +58,11 @@ namespace SmartKids
                 bool isCrateNewUser;
                 if (picturePath != null)
                 {
-                    isCrateNewUser = Program.dataset.New_User(textBox1.Text, textBox2.Text, gen, Catalog + newname);
+                    isCrateNewUser = Program.dataset.NewUser(textBox1.Text, textBox2.Text, gen, Catalog + newname);
                 }
                 else
                 {
-                    isCrateNewUser = Program.dataset.New_User(textBox1.Text, textBox2.Text, gen);
+                    isCrateNewUser = Program.dataset.NewUser(textBox1.Text, textBox2.Text, gen);
 
                 }
 

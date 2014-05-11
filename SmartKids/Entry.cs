@@ -24,7 +24,7 @@ namespace SmartKids
         {
 
 
-            open_yes = Program.dataset.Open_YES(textBox4.Text, textBox5.Text);
+            open_yes = Program.dataset.Authorization(textBox4.Text, textBox5.Text);
 
             if (open_yes)
             {

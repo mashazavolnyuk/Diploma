@@ -30,7 +30,7 @@ namespace SmartKids
 
         private void Add_Task_Load(object sender, EventArgs e)
         {
-            comboBox1.DataSource = Program.dataset.Get_SUB_Cat_name();
+            comboBox1.DataSource = Program.dataset.GetSubCategoryNames();
             comboBox1.SelectedItem = selNmae;
         }
 
@@ -73,7 +73,7 @@ namespace SmartKids
 
         private void button2_Click(object sender, EventArgs e)
         {   string sub=comboBox1.SelectedItem.ToString();
-            Program.dataset.Add_Task(textBox1.Text,textBox2.Text,sub,picturePath);
+            Program.dataset.AddTask(textBox1.Text,textBox2.Text,sub,picturePath);
             MessageBox.Show("Добавлено");
         }
     }

@@ -559,6 +559,13 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public UsersRow FindByuser_id(int user_id) {
+                return ((UsersRow)(this.Rows.Find(new object[] {
+                            user_id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 UsersDataTable cln = ((UsersDataTable)(base.Clone()));
                 cln.InitVars();
@@ -598,8 +605,9 @@ namespace SmartKids {
                 this.columnPhoto = new global::System.Data.DataColumn("Photo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhoto);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnuser_id}, false));
+                                this.columnuser_id}, true));
                 this.columnuser_id.AutoIncrement = true;
+                this.columnuser_id.AllowDBNull = false;
                 this.columnuser_id.ReadOnly = true;
                 this.columnuser_id.Unique = true;
                 this.columnpoints.DefaultValue = ((int)(0));
@@ -1150,6 +1158,13 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SubcategortRow FindBysub_id(int sub_id) {
+                return ((SubcategortRow)(this.Rows.Find(new object[] {
+                            sub_id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 SubcategortDataTable cln = ((SubcategortDataTable)(base.Clone()));
                 cln.InitVars();
@@ -1183,8 +1198,9 @@ namespace SmartKids {
                 this.columnimagePath = new global::System.Data.DataColumn("imagePath", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimagePath);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnsub_id}, false));
+                                this.columnsub_id}, true));
                 this.columnsub_id.AutoIncrement = true;
+                this.columnsub_id.AllowDBNull = false;
                 this.columnsub_id.Unique = true;
             }
             
@@ -1457,6 +1473,13 @@ namespace SmartKids {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TasksRow FindByid_task(int id_task) {
+                return ((TasksRow)(this.Rows.Find(new object[] {
+                            id_task})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 TasksDataTable cln = ((TasksDataTable)(base.Clone()));
                 cln.InitVars();
@@ -1493,8 +1516,9 @@ namespace SmartKids {
                 this.columnsud_id = new global::System.Data.DataColumn("sud_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsud_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid_task}, false));
+                                this.columnid_task}, true));
                 this.columnid_task.AutoIncrement = true;
+                this.columnid_task.AllowDBNull = false;
                 this.columnid_task.Unique = true;
             }
             
@@ -1640,12 +1664,7 @@ namespace SmartKids {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int user_id {
                 get {
-                    try {
-                        return ((int)(this[this.tableUsers.user_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'user_id\' in table \'Users\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableUsers.user_idColumn]));
                 }
                 set {
                     this[this.tableUsers.user_idColumn] = value;
@@ -1730,18 +1749,6 @@ namespace SmartKids {
                 set {
                     this[this.tableUsers.PhotoColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isuser_idNull() {
-                return this.IsNull(this.tableUsers.user_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setuser_idNull() {
-                this[this.tableUsers.user_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1916,12 +1923,7 @@ namespace SmartKids {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int sub_id {
                 get {
-                    try {
-                        return ((int)(this[this.tableSubcategort.sub_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'sub_id\' in table \'Subcategort\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableSubcategort.sub_idColumn]));
                 }
                 set {
                     this[this.tableSubcategort.sub_idColumn] = value;
@@ -1985,18 +1987,6 @@ namespace SmartKids {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Categoty_Subcategort"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Issub_idNull() {
-                return this.IsNull(this.tableSubcategort.sub_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setsub_idNull() {
-                this[this.tableSubcategort.sub_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2097,12 +2087,7 @@ namespace SmartKids {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int id_task {
                 get {
-                    try {
-                        return ((int)(this[this.tableTasks.id_taskColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'id_task\' in table \'Tasks\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableTasks.id_taskColumn]));
                 }
                 set {
                     this[this.tableTasks.id_taskColumn] = value;
@@ -2174,18 +2159,6 @@ namespace SmartKids {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Seteng_wordNull() {
                 this[this.tableTasks.eng_wordColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isid_taskNull() {
-                return this.IsNull(this.tableTasks.id_taskColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setid_taskNull() {
-                this[this.tableTasks.id_taskColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

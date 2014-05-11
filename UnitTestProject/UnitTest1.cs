@@ -31,15 +31,15 @@ namespace UnitTestProject
             dataset.AddSubCategory(1, "five", path);
 
 
-            dataset.Add_Task("lol", "loool", 0, path);
-            dataset.Add_Task("lol", "loool", 0, path);
-            dataset.Add_Task("lol", "loool", 0, path);
-            dataset.Add_Task("lol", "loool", 1, path);
-            dataset.Add_Task("lol", "loool", 1, path);
-            dataset.Add_Task("lol", "loool", 1, path);
-            dataset.Add_Task("lol", "loool", 2, path);
-            dataset.Add_Task("lol", "loool", 3, path);
-            dataset.Add_Task("lol", "loool", 4, path);
+            dataset.AddTask("lol", "loool", 0, path);
+            dataset.AddTask("lol", "loool", 0, path);
+            dataset.AddTask("lol", "loool", 0, path);
+            dataset.AddTask("lol", "loool", 1, path);
+            dataset.AddTask("lol", "loool", 1, path);
+            dataset.AddTask("lol", "loool", 1, path);
+            dataset.AddTask("lol", "loool", 2, path);
+            dataset.AddTask("lol", "loool", 3, path);
+            dataset.AddTask("lol", "loool", 4, path);
 
 
             ShowDataset(dataset);

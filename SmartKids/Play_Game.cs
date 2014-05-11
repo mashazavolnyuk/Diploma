@@ -35,7 +35,7 @@ namespace SmartKids
         {
             InitializeComponent();
             timer = new Timer() { Interval = 5000 };
-            task = Program.dataset.Load_Task();
+            task = Program.dataset.LoadTasks();
 
             if (task.Count < 4)
                 MessageBox.Show("Горите в аду, ублюдки!");

@@ -37,7 +37,7 @@ namespace SmartKids
 
         private void Load_ID_TASK(int Subcategory)
         {
-            task_id = Program.dataset.LOAD_ID_TASK(Subcat);
+            task_id = Program.dataset.GetTasksIdBySubCategoryId(Subcat);
             Load_TASK(task_id);
         }
 
@@ -47,9 +47,9 @@ namespace SmartKids
 
             for (int i = 0; i < temp_id.Count; i++)
             {
-                string eng = Program.dataset.Get_ENG(temp_id[i]);
-                string rus = Program.dataset.Get_RUS(temp_id[i]);
-                string im = Program.dataset.Get_res_image(temp_id[i]);
+                string eng = Program.dataset.GetEnglishWordByTaskId(temp_id[i]);
+                string rus = Program.dataset.GetRussianWordByTaskId(temp_id[i]);
+                string im = Program.dataset.GetImagePathByTaskId(temp_id[i]);
                 task.Add(new Task(eng, rus, im));
             }
 

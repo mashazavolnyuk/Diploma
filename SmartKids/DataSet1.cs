@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using SmartKids.Enums;
 using SmartKids.Properties;
@@ -15,271 +14,28 @@ namespace SmartKids
         }
 
 
-        internal List<string> Get_SUB_Cat_name()
+        internal List<string> GetSubCategoryNames()
         {
-            return (from DataRow d in Subcategort.Rows select d[Subcategort.nameColumn].ToString()).ToList();
+            return (from SubcategortRow d in Subcategort.Rows select d.name).ToList();
         }
 
-        partial class CategotyDataTable
+        internal List<int> GetSubCategoriesByCategoryId(int categoryId)
         {
+            return (from SubcategortRow d in Subcategort.Rows
+                where d.id_cat == categoryId
+                select d.sub_id).ToList();
         }
 
-        partial class SubcategortDataTable
+        internal string GetImageBySubCategoryId(int subCategoryId)
         {
+            List<string> images = (from SubcategortRow d in Subcategort.Rows
+                where d.sub_id == subCategoryId
+                select d.imagePath).ToList();
+            if (images.Count > 0)
+                return
+                    images[0];
+            return "";
         }
-
-        partial class TasksDataTable
-        {
-        }
-
-        #region Работа с уровнями
-
-        //ДОБАВИТЬ категорию
-        public void AddCategory(string name, string path)
-        {
-            DataRow row = Categoty.NewRow();
-            row[Categoty.nameColumn] = name; // все данные в row - всегда типа object
-            row[Categoty.imagePathColumn] = path;
-            Categoty.Rows.Add(row);
-            SaveChanges();
-        }
-
-
-        //ДОБАВИТЬ подкатегорию
-        public void AddSubCategory(int category, string nameSubcat, string path)
-        {
-            DataRow row = Subcategort.NewRow();
-            row[Subcategort.nameColumn] = nameSubcat;
-            row[Subcategort.id_catColumn] = category;
-            row[Subcategort.imagePathColumn] = path;
-            Subcategort.Rows.Add(row);
-            SaveChanges();
-        }
-
-
-        //ЗАГРУЗКА ВСЕХ КАТЕГОРИЙ
-
-        public List<string> Load_ALLCATEG() { 
-        
-        List<string> all=(from DataRow AC in Categoty.Rows
-                          select AC[Categoty.nameColumn].ToString()).ToList();
-        return all;
-  
-        }
-
-        //ЗАГРУЗКА ВСЕХ ПОДКАТЕГОРИЙ
-        public List<string> Load_SUBCAT() {
-
-        List<string> all = (from DataRow AC in Subcategort.Rows
-                            select AC[Subcategort.nameColumn].ToString()).ToList();
-         return all;
-        }
-
-
-        //получение id оталкиваясь от name 
-        public int Search_ID_CAT(string name_cat)
-        {
-            int id = (from DataRow IT in Categoty.Rows
-                      where IT[Categoty.nameColumn] == name_cat
-                      select (int)IT[Categoty.cat_idColumn]).ToList()[0];
-            return id;
-        }
-
-        //получение нахождения ресурсов оталкиваясь от name
-
-        public string Search_IMAGE_CAT(string name_cat)
-        {
-            string name_resurs = (from DataRow IT in Categoty.Rows
-                                  where IT[Categoty.nameColumn] == name_cat
-                                  select (string)IT[Categoty.imagePathColumn]).ToList()[0];
-            return name_resurs;
-        }
-
-        public void Add_Task(string Eng_word, string Rus_word, string Sub_name, string path)
-        {
-            DataRow row = Tasks.NewRow();
-            row[Tasks.eng_wordColumn] = Eng_word;
-            row[Tasks.rus_wordColumn] = Rus_word;
-            int id = Get_ID_TASK(Sub_name);
-            row[Tasks.sud_idColumn] = id;
-            row[Tasks.imagePathColumn] = path;
-            Tasks.Rows.Add(row);
-            SaveChanges();
-        }
-
-        public void Add_Task(string Eng_word, string Rus_word, int Sub_id, string path)
-        {
-            DataRow row = Tasks.NewRow();
-            row[Tasks.eng_wordColumn] = Eng_word;
-            row[Tasks.rus_wordColumn] = Rus_word;
-            row[Tasks.sud_idColumn] = Sub_id;
-            row[Tasks.imagePathColumn] = path;
-            Tasks.Rows.Add(row);
-            SaveChanges();
-        }
-
-
-        private int Get_ID_TASK(string Sub_name)
-        {
-            int id = (from DataRow IT in Subcategort.Rows
-                      where IT[Subcategort.nameColumn] == Sub_name
-                      select (int)IT[Subcategort.sub_idColumn]).ToList()[0];
-            return id;
-        }
-
-        internal List<string> GetCat_name()
-        {
-            return (from DataRow d in Categoty.Rows select d[Categoty.nameColumn].ToString()).ToList();
-        }
-
-
-        internal List<int> GetCat_ID()
-        {
-            return (from DataRow d in Categoty.Rows select (int)d[Categoty.cat_idColumn]).ToList();
-        }
-
-
-        internal string Get_Resurs(int p)
-        {
-            return
-                (from DataRow d in Categoty.Rows
-                 where (int)d[Categoty.cat_idColumn] == p
-                 select d[Categoty.imagePathColumn].ToString()).ToList()[0];
-        }
-
-
-
-
-        #endregion
-
-        #region Работа с юзерами
-
-
-        public bool New_User(string Name, string Pass, Gender g, string Photo = null)
-        {
-            List<string> rows = (from DataRow U in Users.Rows
-                                 where U[Users.user_nameColumn].ToString() == Name
-                                 select U[Users.user_nameColumn].ToString()).ToList();
-            if (rows.Contains(Name))
-                return false;
-            DataRow newUser = Users.NewRow();
-            newUser[Users.user_nameColumn] = Name;
-            newUser[Users.passColumn] = Pass;
-            newUser[Users.GenderColumn] = g;
-            newUser[Users.PhotoColumn] = Photo;
-
-
-            Users.Rows.Add(newUser);
-            SaveChanges();
-            return true;
-        }
-
-
-        private int Search_ID_User(string name_user)
-        {
-            int id = (from DataRow IT in Users.Rows
-                      where IT[Users.user_nameColumn] == name_user
-                      select (int)IT[Users.user_idColumn]).ToList()[0];
-            return id;
-        }
-
-        internal void DeleteUser(int id)
-        {
-            //пишем запрос в котором получаем все записи с user_id == нашему удаляемому ID 
-            DataRow temp =
-                (from DataRow row in Users.Rows where (int)row[Users.user_idColumn] == id select row).ToList()[0];
-
-            Users.Rows.Remove(temp);
-            SaveChanges();
-        }
-
-        #endregion
-
-        #region Проверка авторизации
-
-        internal bool Open_YES(string Name_user, string Pass)
-        {
-            List<string> list = (from DataRow name in Users.Rows
-                                 where name[Users.user_nameColumn].ToString() == Name_user
-                                 select name[Users.passColumn].ToString()).ToList();
-
-            if (list.Count != 0)
-            {
-                string s = list[0];
-                if (s == Pass)
-                    return true;
-                return false;
-            }
-
-            return false;
-        }
-
-        #endregion
-
-        internal List<int> Load_SUBCAT(int Category)
-        {
-
-            return (from DataRow d in Subcategort.Rows
-                    where (int)d[Subcategort.id_catColumn] == Category
-                    select (int)d[Subcategort.sub_idColumn]).ToList();
-        }
-
-        internal string Get_Resurs_SUB(int p)
-        {
-            return
-                (from DataRow d in Subcategort.Rows
-                 where (int)d[Subcategort.sub_idColumn] == p
-                 select d[Subcategort.imagePathColumn].ToString()).ToList()[0];
-
-        }
-
-        #region загрузки для TASK-класса
-
-        internal List<int> LOAD_ID_TASK(int Subcat)
-        {
-            return (from DataRow d in Tasks.Rows
-                    where (int)d[Tasks.sud_idColumn] == Subcat
-                    select (int)d[Tasks.id_taskColumn]).ToList();
-        }
-
-        internal string Get_ENG(int p)
-        {
-            return (from DataRow d in Tasks.Rows
-                    where (int)d[Tasks.id_taskColumn] == p
-                    select d[Tasks.eng_wordColumn].ToString()).ToList()[0];
-
-        }
-
-        internal string Get_RUS(int p)
-        {
-            return (from DataRow d in Tasks.Rows
-                    where (int)d[Tasks.id_taskColumn] == p
-                    select d[Tasks.rus_wordColumn].ToString()).ToList()[0];
-        }
-
-        internal string Get_res_image(int p)
-        {
-            return (from DataRow d in Tasks.Rows
-                    where (int)d[Tasks.id_taskColumn] == p
-                    select d[Tasks.imagePathColumn].ToString()).ToList()[0];
-
-        }
-
-        //ВЕРНУТЬ Все Задания
-        internal List<Task> Load_Task() {
-
-            List<TasksRow> tasks = (from TasksRow d in Tasks.Rows
-                                    select d).ToList();
-            List<Task> list = new List<Task>();
-            for (int i = 0; i < tasks.Count; i++) {
-                list.Add(new Task(tasks[i].eng_word, tasks[i].rus_word, tasks[i].imagePath));
-            }
-             
-            return list;
-        }
-
-
-        #endregion
 
         public void DeleteTask(int id)
         {
@@ -299,7 +55,8 @@ namespace SmartKids
             SaveChanges();
         }
 
-        internal int GetCategoryIdByName(string name)
+        //получение id оталкиваясь от name 
+        public int GetCategoryIdByName(string name)
         {
             List<CategotyRow> r = (from CategotyRow item in Categoty.Rows where item.name == name select item).ToList();
 
@@ -308,10 +65,22 @@ namespace SmartKids
 
             return -1;
         }
+
+        public int GetSubCategoryIdByName(string name)
+        {
+            List<SubcategortRow> r =
+                (from SubcategortRow item in Subcategort.Rows where item.name == name select item).ToList();
+
+            if (r.Count != 0)
+                return r[0].sub_id;
+
+            return -1;
+        }
+
         //УДАЛИТЬ ВСЕ КАТЕГОРИИ
         internal void DeleteAllCategory()
         {
-            for (int i = Categoty.Rows.Count-1; i >= 0; i--)
+            for (int i = Categoty.Rows.Count - 1; i >= 0; i--)
             {
                 Categoty.Rows[i].Delete();
             }
@@ -320,35 +89,230 @@ namespace SmartKids
 
 
         //ФОТО ЮЗЕРА
-        internal UsersRow GetUserByName(string Name)
+        internal UsersRow GetUserByName(string name)
         {
-            int id = Get_Id_USER(Name);
-            var collection = (from UsersRow IT in Users.Rows
-                where IT.user_id == id
-                select IT).ToList();
+            int id = GetUserIdByName(name);
+            List<UsersRow> collection = (from UsersRow user in Users.Rows
+                where user.user_id == id
+                select user).ToList();
 
 
             if (collection.Count != 0)
                 return collection.First();
             return null;
-
-        }
-        private int Get_Id_USER(string Name){
-
-        return (from DataRow IT in Users.Rows
-                    where (string)IT[Users.user_nameColumn] == Name
-                    select (int)IT[Users.user_idColumn]).ToList()[0];
-        
-        
         }
 
 
         //имя категории по индексу
-        internal string Get_name_category(int p)
+        internal string GetCategoryNameById(int categoryId)
         {
-            return (from DataRow IT in Categoty.Rows
-                    where (int)IT[Categoty.cat_idColumn] == p
-                    select (string)IT[Categoty.nameColumn]).ToList()[0];
-        }         
+            var names = (from CategotyRow category in Categoty.Rows
+                where category.cat_id == categoryId
+                select category.name).ToList();
+            if (names.Count > 0)
+                return names[0];
+            return "";
         }
+
+        #region загрузки для TASK-класса
+
+        internal List<int> GetTasksIdBySubCategoryId(int subCategoryId)
+        {
+            return (from TasksRow d in Tasks.Rows
+                where d.sud_id == subCategoryId
+                select d.id_task).ToList();
+        }
+
+        internal string GetEnglishWordByTaskId(int id)
+        {
+            return Tasks.FindByid_task(id).eng_word;
+        }
+
+        internal string GetRussianWordByTaskId(int id)
+        {
+            return Tasks.FindByid_task(id).rus_word;
+        }
+
+        internal string GetImagePathByTaskId(int id)
+        {
+            return Tasks.FindByid_task(id).imagePath;
+        }
+
+        //ВЕРНУТЬ Все Задания
+        internal List<Task> LoadTasks()
+        {
+            List<TasksRow> tasks = (from TasksRow d in Tasks.Rows
+                select d).ToList();
+            var list = new List<Task>();
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                list.Add(new Task(tasks[i].eng_word, tasks[i].rus_word, tasks[i].imagePath));
+            }
+
+            return list;
+        }
+
+        #endregion
+
+        #region Работа с уровнями
+
+        //ДОБАВИТЬ категорию
+        public void AddCategory(string name, string path)
+        {
+            CategotyRow row = Categoty.NewCategotyRow();
+            row.name = name; // все данные в row - всегда типа object
+            row.imagePath = path;
+            Categoty.Rows.Add(row);
+            SaveChanges();
+        }
+
+
+        //ДОБАВИТЬ подкатегорию
+        public void AddSubCategory(int category, string nameSubcat, string path)
+        {
+            SubcategortRow row = Subcategort.NewSubcategortRow();
+            row.name = nameSubcat;
+            row.id_cat = category;
+            row.imagePath = path;
+            Subcategort.Rows.Add(row);
+            SaveChanges();
+        }
+
+
+        //ЗАГРУЗКА ВСЕХ КАТЕГОРИЙ
+
+        public List<string> LoadAllCategories()
+        {
+            return (from CategotyRow category in Categoty.Rows
+                select category.name).ToList();
+        }
+
+        //ЗАГРУЗКА ВСЕХ ПОДКАТЕГОРИЙ
+        public List<string> LoadSubCategories()
+        {
+            return (from SubcategortRow category in Subcategort.Rows
+                select category.name).ToList();
+        }
+
+        //получение нахождения ресурсов оталкиваясь от name
+        public string GetImageByCategoryName(string categoryName)
+        {
+            List<string> rows = (from CategotyRow row in Categoty.Rows
+                where row.name == categoryName
+                select row.imagePath).ToList();
+            if (rows.Count > 0)
+                return rows[0];
+
+            return "";
+        }
+
+        public void AddTask(string englishWord, string russianWord, string subCategoryName, string imagePath)
+        {
+            TasksRow row = Tasks.NewTasksRow();
+            row.eng_word = englishWord;
+            row.rus_word = russianWord;
+            int id = GetCategoryIdByName(subCategoryName);
+            row.sud_id = id;
+            row.imagePath = imagePath;
+            Tasks.Rows.Add(row);
+            SaveChanges();
+        }
+
+        public void AddTask(string englishWord, string russianWord, int subCategoryId, string imagePath)
+        {
+            TasksRow row = Tasks.NewTasksRow();
+            row.eng_word = englishWord;
+            row.rus_word = russianWord;
+            row.sud_id = subCategoryId;
+            row.imagePath = imagePath;
+            Tasks.Rows.Add(row);
+            SaveChanges();
+        }
+
+
+        internal List<string> GetAllCategoriesNames()
+        {
+            return (from CategotyRow d in Categoty.Rows select d.name).ToList();
+        }
+
+
+        internal List<int> GetAllCategoriesIds()
+        {
+            return (from CategotyRow d in Categoty.Rows select d.cat_id).ToList();
+        }
+
+
+        internal string GetImagePathByCategoryId(int id)
+        {
+            return Categoty.FindBycat_id(id).imagePath;
+        }
+
+        #endregion
+
+        #region Работа с юзерами
+
+        public bool NewUser(string name, string password, Gender gender, string photoPath = null)
+        {
+            List<string> rows = (from UsersRow user in Users.Rows
+                where user.user_name == name
+                select user.user_name).ToList();
+            if (rows.Count > 0)
+                return false;
+
+            UsersRow newUser = Users.NewUsersRow();
+            newUser.user_name = name;
+            newUser.pass = password;
+            newUser.Gender = gender.ToString();
+            newUser.Photo = photoPath;
+
+
+            Users.Rows.Add(newUser);
+            SaveChanges();
+            return true;
+        }
+
+
+        private int GetUserIdByName(string userName)
+        {
+            List<int> id = (from UsersRow user in Users.Rows
+                where user.user_name == userName
+                select user.user_id).ToList();
+            if (id.Count > 0)
+                return id[0];
+            return -1;
+        }
+
+        internal void DeleteUser(int id)
+        {
+            //пишем запрос в котором получаем все записи с user_id == нашему удаляемому ID 
+            List<UsersRow> temp =
+                (from UsersRow row in Users.Rows where row.user_id == id select row).ToList();
+
+            temp.First().Delete();
+            SaveChanges();
+        }
+
+        #endregion
+
+        #region Проверка авторизации
+
+        internal bool Authorization(string username, string password)
+        {
+            List<string> list = (from UsersRow name in Users.Rows
+                where name.user_name == username
+                select name.pass).ToList();
+
+            if (list.Count != 0)
+            {
+                string s = list[0];
+                if (s == password)
+                    return true;
+                return false;
+            }
+
+            return false;
+        }
+
+        #endregion
     }
+}
