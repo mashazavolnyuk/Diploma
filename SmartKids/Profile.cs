@@ -41,9 +41,28 @@ namespace SmartKids
 
 
         private void Load_User(string Name) {
-         label1.Text = Name;
-         pictureBox1.Image = Image.FromFile(Program.dataset.GetPhopo_USER(Name));
+            DataSet1.UsersRow user = Program.dataset.GetUserByName(Name);
+            if (user!=null)
+            {
+                Program.CurrentUser = user;
+                         label1.Text = user.user_name;
+                label2.Text = user.points.ToString();
 
+                if (!user.IsPhotoNull())
+                    pictureBox1.Image = Image.FromFile(user.Photo);
+                else
+                {
+                    if (user.Gender == Gender.Boy.ToString())
+                    {
+                        pictureBox1.Image = Properties.Resources.boy;
+                    }
+                    else
+                    {
+                        pictureBox1.Image = Properties.Resources.girl1;
+                    }
+                }
+                
+            }
         }
 
 
@@ -96,8 +115,7 @@ namespace SmartKids
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            Play_Game newgame = new Play_Game(name_user);
-            newgame.Show();
+            new Play_Game().ShowDialog();
         }
 
     }

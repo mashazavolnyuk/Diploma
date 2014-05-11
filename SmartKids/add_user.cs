@@ -27,44 +27,65 @@ namespace SmartKids
 
 
 
-        private void Add_New_USER(string Name_User,string Pass,Gender g)
+        private void Add_New_USER(string Name_User, string Pass, Gender g)
         {
 
 
-            newname = picturePath.Split(new Char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries).Last();
-            if (textBox1.Text != String.Empty)
-            {
 
-                if (!Directory.Exists(Catalog))
+
+            if (textBox1.Text != String.Empty && textBox2.Text != String.Empty)
+            {
+                //TODO: check picture
+                if (picturePath != null)
                 {
-                    Directory.CreateDirectory(Catalog);
-                    if (!File.Exists(Catalog + newname))
+                    newname = picturePath.Split(new Char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries).Last();
+                    if (!Directory.Exists(Catalog))
                     {
-                        File.Copy(picturePath, Catalog + newname);
+                        Directory.CreateDirectory(Catalog);
+                        if (!File.Exists(Catalog + newname))
+                        {
+                            File.Copy(picturePath, Catalog + newname);
+                        }
                     }
+                    else
+                    {
+                        File.Copy(picturePath, Catalog + newname, true);
+                    }
+
+                }
+
+
+                bool isCrateNewUser;
+                if (picturePath != null)
+                {
+                    isCrateNewUser = Program.dataset.New_User(textBox1.Text, textBox2.Text, gen, Catalog + newname);
                 }
                 else
                 {
-                    File.Copy(picturePath, Catalog + newname);
-                }
+                    isCrateNewUser = Program.dataset.New_User(textBox1.Text, textBox2.Text, gen);
 
                 }
 
-                if (!Program.dataset.New_User(textBox1.Text, textBox2.Text, gen, Catalog + newname))
-                MessageBox.Show("Такой пользователь уже есть");
 
-            
+                if (!isCrateNewUser)
+                    MessageBox.Show("Такой пользователь уже есть");
+
+
+            }
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
-        { 
-            
+        {
+
             if (radioButton1.Checked)
-                    gen = Gender.Boy;
-                else
-                    gen = Gender.Girl;
+                gen = Gender.Boy;
+            else
+                gen = Gender.Girl;
             Add_New_USER(textBox1.Text, textBox2.Text, gen);
-            
+
 
         }
 

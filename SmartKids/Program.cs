@@ -15,10 +15,13 @@ namespace SmartKids
 
         public static DataSet1 dataset;
 
+        public static DataSet1.UsersRow CurrentUser;
+
         [STAThread]
         static void Main()
         {
             dataset = new DataSet1();
+            
 
             if(!File.Exists(Properties.Resources.dataBasePath))
                 dataset.WriteXml(Properties.Resources.dataBasePath);

@@ -91,6 +91,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::SmartKids.Properties.Resources.boy;
             this.pictureBox1.Location = new System.Drawing.Point(167, 110);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(131, 94);

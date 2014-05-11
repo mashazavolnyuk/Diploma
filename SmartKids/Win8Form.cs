@@ -14,7 +14,7 @@ namespace SmartKids
         private int step = 40;
         private int width, height;
         private Win8ExitButton win8ExitButton1;
-        
+
         public Win8Form()
         {
             InitializeComponent();
@@ -63,7 +63,7 @@ namespace SmartKids
                 {
                     for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
                     {
-                            Application.OpenForms[i].Close();
+                        Application.OpenForms[i].Close();
                     }
                 }
             }
@@ -132,7 +132,7 @@ namespace SmartKids
 
         private void MyForm_Load(object sender, EventArgs e)
         {
-            Location = new Point(width,0);
+            Location = new Point(width, 0);
             this.Size = new Size(width, height);
             _openTimer.Enabled = true;
         }
@@ -145,7 +145,7 @@ namespace SmartKids
         private void win8ExitButton1_Click(object sender, EventArgs e)
         {
             _closeTimer.Start();
-            Location = new Point(Screen.PrimaryScreen.Bounds.Width + 10,0);
+            Location = new Point(Screen.PrimaryScreen.Bounds.Width + 10, 0);
             exit = true;
 
         }

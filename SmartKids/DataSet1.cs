@@ -154,7 +154,8 @@ namespace SmartKids
 
         #region Работа с юзерами
 
-        public bool New_User(string Name, string Pass, Gender g, string Photo)
+
+        public bool New_User(string Name, string Pass, Gender g, string Photo = null)
         {
             List<string> rows = (from DataRow U in Users.Rows
                                  where U[Users.user_nameColumn].ToString() == Name
@@ -319,17 +320,18 @@ namespace SmartKids
 
 
         //ФОТО ЮЗЕРА
-        internal string GetPhopo_USER(string Name)
+        internal UsersRow GetUserByName(string Name)
         {
             int id = Get_Id_USER(Name);
-            return (from DataRow IT in Users.Rows
-                     where (int)IT[Users.user_idColumn]==id
-                     select IT[Users.PhotoColumn].ToString()).ToList()[0];
-                        
-                        
-                        
-           
-                      
+            var collection = (from UsersRow IT in Users.Rows
+                where IT.user_id == id
+                select IT).ToList();
+
+
+            if (collection.Count != 0)
+                return collection.First();
+            return null;
+
         }
         private int Get_Id_USER(string Name){
 
