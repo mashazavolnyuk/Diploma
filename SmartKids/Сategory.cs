@@ -8,14 +8,17 @@ namespace SmartKids
 {
     public class Сategory
     {
-        private bool open;//открытость категории.for User
-        private string name;//название
-        private int coin;//стоимость
+       
+      public string name;//название
         public string Picter;
         List<int> subcategory = new List<int>();//список подкатегорий..id
-        public Сategory(string Name,string picter) {
+        int index;//индекс категории
+
+        public Сategory(string Name,string picter,int Index) {
          this.name = Name;
          this.Picter = picter;
+         this.index = Index;
+
         }
     
     }

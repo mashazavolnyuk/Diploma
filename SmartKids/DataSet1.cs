@@ -32,7 +32,7 @@ namespace SmartKids
         {
         }
 
-        #region Работа с левелами
+        #region Работа с уровнями
 
         //ДОБАВИТЬ категорию
         public void AddCategory(string name, string path)
@@ -74,10 +74,6 @@ namespace SmartKids
                             select AC[Subcategort.nameColumn].ToString()).ToList();
          return all;
         }
-
-
-
-
 
 
         //получение id оталкиваясь от name 
@@ -236,8 +232,6 @@ namespace SmartKids
 
         }
 
-
-
         #region загрузки для TASK-класса
 
         internal List<int> LOAD_ID_TASK(int Subcat)
@@ -269,6 +263,21 @@ namespace SmartKids
                     select d[Tasks.imagePathColumn].ToString()).ToList()[0];
 
         }
+
+        //ВЕРНУТЬ Все Задания
+        internal List<Task> Load_Task() {
+
+            List<TasksRow> tasks = (from TasksRow d in Tasks.Rows
+                                    select d).ToList();
+            List<Task> list = new List<Task>();
+            for (int i = 0; i < tasks.Count; i++) {
+                list.Add(new Task(tasks[i].eng_word, tasks[i].rus_word, tasks[i].imagePath));
+            }
+             
+            return list;
+        }
+
+
         #endregion
 
         public void DeleteTask(int id)
@@ -288,7 +297,6 @@ namespace SmartKids
             Categoty.FindBycat_id(id).Delete();
             SaveChanges();
         }
-
 
         internal int GetCategoryIdByName(string name)
         {
@@ -310,7 +318,7 @@ namespace SmartKids
         }
 
 
-
+        //ФОТО ЮЗЕРА
         internal string GetPhopo_USER(string Name)
         {
             int id = Get_Id_USER(Name);
@@ -331,5 +339,14 @@ namespace SmartKids
         
         
         }
+
+
+        //имя категории по индексу
+        internal string Get_name_category(int p)
+        {
+            return (from DataRow IT in Categoty.Rows
+                    where (int)IT[Categoty.cat_idColumn] == p
+                    select (string)IT[Categoty.nameColumn]).ToList()[0];
+        }         
+        }
     }
-}

@@ -39,6 +39,7 @@ namespace SmartKids
         ///TODO 
         ///КАК БЫ ДПИСАТЬ НАДО)))
         //по таймеру стартуем
+
         private void Start_Game()
         {
             List<PictureBox> pic = new List<PictureBox>();
@@ -51,7 +52,6 @@ namespace SmartKids
 
             curent_word = My_Random.Next(coin, end);
             label1.Text = task[curent_word].eng_word;
-
             int random = My_Random.Next(0, count);
             pic[random].Image = Image.FromFile(task[curent_word].image);
 
