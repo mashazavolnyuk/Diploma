@@ -211,7 +211,7 @@ namespace SmartKids
             TasksRow row = Tasks.NewTasksRow();
             row.eng_word = englishWord;
             row.rus_word = russianWord;
-            int id = GetCategoryIdByName(subCategoryName);
+            int id = GetSubCategoryIdByName(subCategoryName);
             row.sud_id = id;
             row.imagePath = imagePath;
             Tasks.Rows.Add(row);
