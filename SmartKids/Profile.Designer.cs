@@ -67,7 +67,7 @@
             this.panel1.Location = new System.Drawing.Point(120, 213);
             this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(737, 408);
+            this.panel1.Size = new System.Drawing.Size(773, 408);
             this.panel1.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -87,7 +87,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(698, 396);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(734, 396);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tableLayoutPanel1_ControlAdded);
             // 
@@ -104,7 +104,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::SmartKids.Properties.Resources.Playeralt;
-            this.pictureBox3.Location = new System.Drawing.Point(11, 327);
+            this.pictureBox3.Location = new System.Drawing.Point(11, 260);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 91);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -137,7 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Indigo;
-            this.ClientSize = new System.Drawing.Size(900, 638);
+            this.ClientSize = new System.Drawing.Size(936, 638);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox3);

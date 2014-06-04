@@ -22,15 +22,15 @@ namespace SmartKids
         internal List<int> GetSubCategoriesByCategoryId(int categoryId)
         {
             return (from SubcategortRow d in Subcategort.Rows
-                where d.id_cat == categoryId
-                select d.sub_id).ToList();
+                    where d.id_cat == categoryId
+                    select d.sub_id).ToList();
         }
 
         internal string GetImageBySubCategoryId(int subCategoryId)
         {
             List<string> images = (from SubcategortRow d in Subcategort.Rows
-                where d.sub_id == subCategoryId
-                select d.imagePath).ToList();
+                                   where d.sub_id == subCategoryId
+                                   select d.imagePath).ToList();
             if (images.Count > 0)
                 return
                     images[0];
@@ -93,8 +93,8 @@ namespace SmartKids
         {
             int id = GetUserIdByName(name);
             List<UsersRow> collection = (from UsersRow user in Users.Rows
-                where user.user_id == id
-                select user).ToList();
+                                         where user.user_id == id
+                                         select user).ToList();
 
 
             if (collection.Count != 0)
@@ -106,9 +106,9 @@ namespace SmartKids
         //имя категории по индексу
         internal string GetCategoryNameById(int categoryId)
         {
-            var names = (from CategotyRow category in Categoty.Rows
-                where category.cat_id == categoryId
-                select category.name).ToList();
+            var names = (from CategotyRow subcategory in Categoty.Rows
+                         where subcategory.cat_id == categoryId
+                         select subcategory.name).ToList();
             if (names.Count > 0)
                 return names[0];
             return "";
@@ -119,8 +119,8 @@ namespace SmartKids
         internal List<int> GetTasksIdBySubCategoryId(int subCategoryId)
         {
             return (from TasksRow d in Tasks.Rows
-                where d.sud_id == subCategoryId
-                select d.id_task).ToList();
+                    where d.sud_id == subCategoryId
+                    select d.id_task).ToList();
         }
 
         internal string GetEnglishWordByTaskId(int id)
@@ -142,7 +142,7 @@ namespace SmartKids
         internal List<Task> LoadTasks()
         {
             List<TasksRow> tasks = (from TasksRow d in Tasks.Rows
-                select d).ToList();
+                                    select d).ToList();
             var list = new List<Task>();
             for (int i = 0; i < tasks.Count; i++)
             {
@@ -184,22 +184,22 @@ namespace SmartKids
         public List<string> LoadAllCategories()
         {
             return (from CategotyRow category in Categoty.Rows
-                select category.name).ToList();
+                    select category.name).ToList();
         }
 
         //ЗАГРУЗКА ВСЕХ ПОДКАТЕГОРИЙ
         public List<string> LoadSubCategories()
         {
             return (from SubcategortRow category in Subcategort.Rows
-                select category.name).ToList();
+                    select category.name).ToList();
         }
 
         //получение нахождения ресурсов оталкиваясь от name
         public string GetImageByCategoryName(string categoryName)
         {
             List<string> rows = (from CategotyRow row in Categoty.Rows
-                where row.name == categoryName
-                select row.imagePath).ToList();
+                                 where row.name == categoryName
+                                 select row.imagePath).ToList();
             if (rows.Count > 0)
                 return rows[0];
 
@@ -254,8 +254,8 @@ namespace SmartKids
         public bool NewUser(string name, string password, Gender gender, string photoPath = null)
         {
             List<string> rows = (from UsersRow user in Users.Rows
-                where user.user_name == name
-                select user.user_name).ToList();
+                                 where user.user_name == name
+                                 select user.user_name).ToList();
             if (rows.Count > 0)
                 return false;
 
@@ -275,8 +275,8 @@ namespace SmartKids
         private int GetUserIdByName(string userName)
         {
             List<int> id = (from UsersRow user in Users.Rows
-                where user.user_name == userName
-                select user.user_id).ToList();
+                            where user.user_name == userName
+                            select user.user_id).ToList();
             if (id.Count > 0)
                 return id[0];
             return -1;
@@ -299,8 +299,8 @@ namespace SmartKids
         internal bool Authorization(string username, string password)
         {
             List<string> list = (from UsersRow name in Users.Rows
-                where name.user_name == username
-                select name.pass).ToList();
+                                 where name.user_name == username
+                                 select name.pass).ToList();
 
             if (list.Count != 0)
             {
@@ -314,5 +314,15 @@ namespace SmartKids
         }
 
         #endregion
+
+            internal string CetNamebyID(int p)
+            {
+                var names = (from SubcategortRow subcategory in Subcategort.Rows
+                             where subcategory.sub_id == p
+                             select subcategory.name).ToList();
+                if (names.Count > 0)
+                    return names[0];
+                return "";
+            }
+        }
     }
-}

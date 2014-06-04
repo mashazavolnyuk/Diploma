@@ -17,6 +17,7 @@ namespace SmartKids
 
         //id подкатегорий 
         List<int> subcategory = new List<int>();
+        List<Subcategory> SUBCategory = new List<Subcategory>();//загруженные подкатегории
        
         public Show_subcat(int cat)
         {
@@ -41,17 +42,19 @@ namespace SmartKids
 
         private void Show_subcategory() {
 
-         subcategory=Program.dataset.GetSubCategoriesByCategoryId(Cat);//id подкатегорий
+            subcategory=Program.dataset.GetSubCategoriesByCategoryId(Cat);//id подкатегорий
             label1.Text = Program.dataset.Categoty.FindBycat_id(Cat).name;
+
+
 
             for (int i = 0; i < subcategory.Count; i++)
             {
                 ProfileItemControl pit = new ProfileItemControl();
                 pit.Image = Image.FromFile(Program.dataset.GetImageBySubCategoryId(subcategory[i]));
-                pit.Text = subcategory[i].ToString();
+                pit.Text = Program.dataset.CetNamebyID(subcategory[i]);
                 pit.Tag = subcategory[i].ToString();
                 pit.Click += pit_Click;
-                tableLayoutPanel1.Controls.Add(pit);
+                tableLayoutPanel2.Controls.Add(pit);
             }
         
         }

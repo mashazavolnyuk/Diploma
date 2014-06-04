@@ -83,6 +83,16 @@ namespace SmartKids.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clock {
+            get {
+                object obj = ResourceManager.GetObject("clock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap coin {
             get {
                 object obj = ResourceManager.GetObject("coin", resourceCulture);
@@ -215,6 +225,36 @@ namespace SmartKids.Properties {
         internal static System.Drawing.Bitmap psd_gold_coin_icon_30_1703 {
             get {
                 object obj = ResourceManager.GetObject("psd-gold-coin-icon_30-1703", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsNew {
+            get {
+                object obj = ResourceManager.GetObject("WhatsNew", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Без_имени_1 {
+            get {
+                object obj = ResourceManager.GetObject("Без имени-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Без_имени_13 {
+            get {
+                object obj = ResourceManager.GetObject("Без имени-13", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
