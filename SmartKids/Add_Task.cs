@@ -76,5 +76,20 @@ namespace SmartKids
             Program.dataset.AddTask(textBox1.Text,textBox2.Text,sub,picturePath);
             MessageBox.Show("Добавлено");
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
