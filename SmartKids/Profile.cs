@@ -118,5 +118,10 @@ namespace SmartKids
             new Play_Game().ShowDialog();
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

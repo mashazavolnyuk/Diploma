@@ -68,6 +68,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "удалить все";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // All_subcategory
             // 
@@ -77,7 +78,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "All_subcategory";
             this.Text = "All_subcategory";
             this.Controls.SetChildIndex(this.listBox1, 0);

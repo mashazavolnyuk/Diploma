@@ -118,32 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="boy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\boy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dataBasePath" xml:space="preserve">
-    <value>database.xml</value>
+  <data name="hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exitNorm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exitNorm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="coin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exitPress" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exitPress.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="no" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\no.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="girl1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\girl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="coin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\coin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="boy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,13 +142,28 @@
   <data name="Playeralt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Playeralt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exitHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exitHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="girl1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\girl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dataBasePath" xml:space="preserve">
+    <value>database.xml</value>
   </data>
   <data name="ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="no" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\no.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exitPress" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exitPress.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="44023" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\44023.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="psd-gold-coin-icon_30-1703" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\psd-gold-coin-icon_30-1703.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
