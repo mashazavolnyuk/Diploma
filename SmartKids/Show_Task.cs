@@ -133,7 +133,7 @@ namespace SmartKids
         private void Create_Document()
         {
 
-
+            try { 
             Word._Application oWord;
             Word._Document oDoc; 
 
@@ -147,10 +147,12 @@ namespace SmartKids
             ref oMissing, ref oMissing);
 
             Word.Paragraph oPara2;
+           
             oPara2 = oDoc.Content.Paragraphs.Add(ref oMissing);
             oPara2.Format.LineSpacing = 2;
-            oPara2.Range.Text = "SMART KIDS" + "\n" +
+            oPara2.Range.Text = "SMART KIDS" + "\n" + 
             "______________________________________";
+
 
             for (int i = 0; i < task.Count; i++) {
 
@@ -167,10 +169,15 @@ namespace SmartKids
             oPara1.Format.SpaceAfter = 24;  
  
             }
+            }
+            catch(Exception e)
+            {
 
+                MessageBox.Show("Ошибка создания документа. Возможно у Вас отсутсвует необходимое для этого приложение");
+            
+            }
 
-
-           // document.Shapes.AddPicture(task[0].image); //картинка епта
+           
 
 
 

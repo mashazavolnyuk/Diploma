@@ -78,6 +78,7 @@ namespace SmartKids
                 }
 
                 Program.dataset.AddSubCategory(id_cat, name_sub, Catalog + newname);
+                MessageBox.Show("Данные добавлены");
             }
         }
 
