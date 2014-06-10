@@ -38,7 +38,7 @@ namespace SmartKids
             task = Program.dataset.LoadTasks();
 
             if (task.Count < 4)
-                MessageBox.Show("Горите в аду, ублюдки!");
+                MessageBox.Show("Не достаточно данных для игрового процесса");
 
             pictureBox1.Click += pictureBox_Click;
             pictureBox2.Click += pictureBox_Click;
@@ -136,9 +136,6 @@ namespace SmartKids
         }
 
 
-        ///TODO 
-        ///КАК БЫ ДПИСАТЬ НАДО)))
-        //по таймеру стартуем
 
         private void Play_Game_Load(object sender, EventArgs e)
         {
